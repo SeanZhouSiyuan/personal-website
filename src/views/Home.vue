@@ -1,22 +1,26 @@
 <template>
-  <div id="page_home">
-    <h1>Sean Zhou</h1>
-    <p>Student, front-end learner, liberal. Fan of Star Wars series.</p>
-    <nav>
-      <a href="#">Resume</a>
-      <router-link to="/posts">Posts</router-link>
-    </nav>
+  <div>
+    <my-intro></my-intro>
+    <my-edu></my-edu>
   </div>
 </template>
 
 <script>
+import MyIntro from '../components/MyIntro.vue';
+import MyEdu from '../components/MyEdu.vue';
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    MyIntro,
+    MyEdu
+  }
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+.page {
+  height: 100vh;
+}
 </style>
 
 

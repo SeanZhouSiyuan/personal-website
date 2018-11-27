@@ -41,6 +41,9 @@ h2 {
 h1 {
   font-size: 2.00rem;
 }
+p {
+  line-height: 1.5;
+}
 a {
   color: $black;
   text-decoration: none;
@@ -55,5 +58,12 @@ a {
 
 .flex-container {
   display: flex;
+}
+
+.wrapper {
+  padding: 1.5rem 0;
+  margin: 0 auto;
+  width: calc(100% - 20px);
+  max-width: 900px;
 }
 </style>

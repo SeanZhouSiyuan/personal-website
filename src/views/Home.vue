@@ -16,14 +16,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.page {
-  min-height: 100vh;
-  .heading {
-    text-align: center;
-  }
-}
-</style>
-
-

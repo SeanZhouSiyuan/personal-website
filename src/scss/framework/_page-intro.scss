@@ -1,0 +1,27 @@
+#page_intro {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    nav {
+        text-align: center;
+        .nav-item {
+            margin-bottom: 0.75rem;
+            letter-spacing: 1px;
+            word-spacing: 1px;
+        }
+    }
+    .title {
+        margin-bottom: 1rem;
+        // title has double letter and word spacing
+        // since it has double font size
+        letter-spacing: 2px;
+        word-spacing: 2px;
+    }
+    .title-secondary {
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        font-weight: normal;
+        letter-spacing: 1px;
+        word-spacing: 1px;
+    }
+}

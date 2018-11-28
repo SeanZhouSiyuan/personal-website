@@ -4,33 +4,11 @@
             <h2 class="heading">Education</h2>
             <div class="content">
                 <div class="edu-group flex-container">
-                    <div class="edu-item">
-                        <h3>Shenzhen University</h3>
-                        <div>
-                            <p>Bachelor of Engineering in Telecommunication</p>
-                            <p>GPA: 3.8/4.0, ranked 5 among 160 students</p>
-                        </div>
-                    </div>
-                    <div class="edu-item">
-                        <h3>
-                            The University of California<br>
-                            San Diego
-                        </h3>
-                        <div>
-                            <p>Visiting Student</p>
-                            <p>Enrolled in Language and Culture Program</p>
-                        </div>
-                    </div>
-                    <div class="edu-item">
-                        <h3>
-                            The Hong Kong University of<br>
-                            Science and Technology
-                        </h3>
-                        <div>
-                            <p>Master of Science in Information Technology</p>
-                            <p>Expected 2019.06</p>
-                        </div>
-                    </div>
+                    <edu-item
+                        v-for="item in eduList"
+                        :key="item.id"
+                        v-bind="item"
+                    ></edu-item>
                 </div>
             </div>
         </div>
@@ -38,7 +16,62 @@
 </template>
 
 <script>
+import EduItem from './EduItem.vue';
 export default {
-    name: 'MyEdu'
+    name: 'MyEdu',
+    components: {
+        EduItem
+    },
+    data() {
+        return {
+            eduList: [
+                {
+                    id: 0,
+                    school: 'Shenzhen University',
+                    duration: '2014.10-2018.06',
+                    details: [
+                        {
+                            id: 0,
+                            text: 'Bachelor of Engineering in Telecommunication'
+                        },
+                        {
+                            id: 1,
+                            text: 'GPA: 3.8/4.0, ranked 5 among 160 students'
+                        }
+                    ]
+                },
+                {
+                    id: 1,
+                    school: 'The University of California\nSan Diego',
+                    duration: '2017.08-2017.12',
+                    details: [
+                        {
+                            id: 0,
+                            text: 'Visiting Student'
+                        },
+                        {
+                            id: 1,
+                            text: 'Enrolled in Language and Culture Program'
+                        }
+                    ]
+                },
+                {
+                    id: 2,
+                    school: 'The Hong Kong University of\nScience and Technology',
+                    duration: '2018.09-present',
+                    details: [
+                        {
+                            id: 0,
+                            text: 'Master of Science in Information Technology'
+                        },
+                        {
+                            id: 1,
+                            text: 'Expected 2019.06'
+                        }
+                    ]
+                }
+            ]
+        }
+    }
 }
 </script>

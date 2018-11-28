@@ -8,6 +8,11 @@
         margin-bottom: 1.25rem;
         width: 100%;
         @extend %box-shadow;
+        .item-school {
+            line-height: 1.25;
+            // preserve line breaks
+            white-space: pre-line;
+        }
     }
 }
 @media screen and (min-width: 768px) {

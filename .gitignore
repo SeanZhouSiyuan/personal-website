@@ -1,14 +1,5 @@
 .DS_Store
-
-# ignore everything in `/node_modules`
-# except `/node_modules/node-sass/lib/render.js`
-/node_modules/*
-!/node_modules/node-sass/
-/node_modules/node-sass/*
-!/node_modules/node-sass/lib/
-/node_modules/node-sass/lib/*
-!/node_modules/node-sass/lib/render.js
-
+node_modules
 /dist
 
 # local env files

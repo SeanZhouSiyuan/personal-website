@@ -1,12 +1,10 @@
 #page_edu {
-    .flex-container {
-        flex-wrap: wrap;
+    .edu-item {
+        display: flex;
+        flex-direction: column;
         justify-content: space-between;
-    }
-    .flex-item {
         padding: 1rem 1rem 0;
         border-radius: 0.25rem;
-        margin-bottom: 1.25rem;
         width: 100%;
         .box-shadow();
         .item-school {
@@ -15,13 +13,40 @@
         }
     }
 }
-// @media screen and (min-width: 768px) {
-//     #page_edu {
-//         .edu-group {
-//             justify-content: space-between;
-//         }
-//         .edu-item {
-//             width: calc(50% - 10px);
-//         }
-//     }
-// }
+
+@media screen and (max-width: 768px) {
+    .carousel-wrapper {
+        width: 100%;
+        overflow: hidden;
+    }
+    .carousel {
+        display: flex;
+        width: 300%;
+        transition: transform ease 500ms;
+    }
+    .carousel-control {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1rem;
+    }
+    .slide {
+        position: relative;
+        display: flex;
+        padding: 1.25rem 1rem;
+        width: calc(100% / 3);
+    }
+}
+
+@media screen and (min-width: 769px) {
+    #page_edu {
+        .flex-container {
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .flex-item {
+            display: flex;
+            margin-bottom: 1.25rem;
+            width: calc(50% - 10px);
+        }
+    }
+}

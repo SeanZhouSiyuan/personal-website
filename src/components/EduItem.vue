@@ -1,7 +1,9 @@
 <template>
     <div class="edu-item">
-        <h6 class="item-duration">{{ duration }}</h6>
-        <h3 class="item-school">{{ school }}</h3>
+        <hgroup>
+            <h6 class="item-duration">{{ duration }}</h6>
+            <h3 class="item-school">{{ school }}</h3>
+        </hgroup>
         <div class="item-details">
             <p v-for="item in details" :key="item.id">
                 {{ item.text }}

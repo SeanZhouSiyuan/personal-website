@@ -3,15 +3,22 @@
         <div class="wrapper">
             <h2 class="heading">Education</h2>
             <div class="content">
-                <div class="edu-group flex-container">
+                <div class="carousel-wrapper">
+                    <!-- following content can overflow -->
                     <div
-                        v-show="item.id === currentSlide"
-                        v-for="item in eduList"
-                        :key="item.id"
-                        class="flex-item"
-                    ><edu-item v-bind="item"></edu-item></div>
-                    <button @click="changeSlide(-1)">Prev</button>
-                    <button @click="changeSlide(1)">Next</button>
+                        :style="{ transform: carouselTransform }"
+                        class="carousel flex-container"
+                    >
+                        <div
+                            v-for="item in eduList"
+                            :key="item.id"
+                            class="slide flex-item"
+                        ><edu-item v-bind="item"></edu-item></div>
+                    </div>
+                    <div class="carousel-control">
+                        <button @click="changeSlide(-1)">Prev</button>
+                        <button @click="changeSlide(1)">Next</button>
+                    </div>       
                 </div>
             </div>
         </div>
@@ -74,7 +81,8 @@ export default {
                     ]
                 }
             ],
-            currentSlide: 0
+            currentSlide: 0,
+            carouselTransform: 'translateX(0px)'
         }
     },
     methods: {
@@ -94,6 +102,7 @@ export default {
                     vm.currentSlide--;
                 }
             }
+            this.carouselTransform = `translateX(${ - 100 * vm.currentSlide / length }%)`;
         }
     }
 }

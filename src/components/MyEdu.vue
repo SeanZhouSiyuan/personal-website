@@ -15,7 +15,7 @@
                             class="slide flex-item"
                         ><edu-item v-bind="item"></edu-item></div>
                     </div>
-                    <div class="carousel-control">
+                    <div v-if="isDesktop === false" class="carousel-control">
                         <button @click="changeSlide(-1)">Prev</button>
                         <button @click="changeSlide(1)">Next</button>
                     </div>       
@@ -82,10 +82,36 @@ export default {
                 }
             ],
             currentSlide: 0,
-            carouselTransform: 'translateX(0px)'
+            carouselTransform: 'translateX(0px)',
+            innerWidth: window.innerWidth
         }
     },
+    computed: {
+        isDesktop() {
+            return this.innerWidth > 768 ? true : false;
+        }
+    },
+    watch: {
+        isDesktop() {
+            if (this.isDesktop) {
+                this.currentSlide = 0;
+                this.carouselTransform = 'translateX(0)';
+            }
+        }
+    },
+    beforeMount() {
+        this.initialize();
+    },
     methods: {
+        initialize() {
+            this.addResizeHandler();
+        },
+        addResizeHandler() {
+            var vm = this;
+            window.addEventListener('resize', () => {
+                vm.innerWidth = window.innerWidth;
+            });
+        },
         changeSlide(n) {
             var vm = this;
             var length = vm.eduList.length;

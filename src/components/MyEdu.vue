@@ -4,11 +4,14 @@
             <h2 class="heading">Education</h2>
             <div class="content">
                 <div class="edu-group flex-container">
-                    <edu-item
+                    <div
+                        v-show="item.id === currentSlide"
                         v-for="item in eduList"
                         :key="item.id"
-                        v-bind="item"
-                    ></edu-item>
+                        class="flex-item"
+                    ><edu-item v-bind="item"></edu-item></div>
+                    <button @click="changeSlide(-1)">Prev</button>
+                    <button @click="changeSlide(1)">Next</button>
                 </div>
             </div>
         </div>
@@ -70,7 +73,27 @@ export default {
                         }
                     ]
                 }
-            ]
+            ],
+            currentSlide: 0
+        }
+    },
+    methods: {
+        changeSlide(n) {
+            var vm = this;
+            var length = vm.eduList.length;
+            if (n === 1) {
+                if (vm.currentSlide === length - 1) {
+                    vm.currentSlide = 0;
+                } else {
+                    vm.currentSlide++;
+                }
+            } else if (n === -1) {
+                if (vm.currentSlide === 0) {
+                    vm.currentSlide = length - 1;
+                } else {
+                    vm.currentSlide--;
+                }
+            }
         }
     }
 }

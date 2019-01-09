@@ -1,4 +1,13 @@
 #page_edu {
+    .flex-container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .edu-wrapper {
+        display: flex;
+        margin-bottom: 1.25rem;
+        width: calc(50% - 10px);
+    }
     .edu-item {
         display: flex;
         flex-direction: column;
@@ -10,44 +19,6 @@
         .item-school {
             // preserve line breaks
             white-space: pre-line;
-        }
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .carousel-wrapper {
-        width: 100%;
-        overflow: hidden;
-    }
-    .carousel {
-        display: flex;
-        width: 300%;
-        transition: transform ease 500ms;
-    }
-    .carousel-control {
-        display: flex;
-        justify-content: space-between;
-        padding: 0 1rem;
-    }
-    .slide {
-        position: relative;
-        // make sure content fill container height
-        display: flex;
-        padding: 1.25rem 1rem;
-        width: calc(100% / 3);
-    }
-}
-
-@media screen and (min-width: 769px) {
-    #page_edu {
-        .flex-container {
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .flex-item {
-            display: flex;
-            margin-bottom: 1.25rem;
-            width: calc(50% - 10px);
         }
     }
 }

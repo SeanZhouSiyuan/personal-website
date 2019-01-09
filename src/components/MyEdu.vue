@@ -3,33 +3,37 @@
         <div class="wrapper">
             <h2 class="heading">Education</h2>
             <div class="content">
-                <div class="carousel-wrapper">
-                    <!-- following content can overflow -->
-                    <div
-                        :style="{ transform: carouselTransform }"
-                        class="carousel flex-container"
-                    >
+                <template v-if="isMobile">
+                    <my-carousel>
+                        <my-slide
+                            v-for="item in eduList"
+                            :key="item.id"
+                        ><edu-item v-bind="item"></edu-item></my-slide>
+                    </my-carousel>
+                </template>
+                <template v-else>
+                    <div class="flex-container">
                         <div
                             v-for="item in eduList"
                             :key="item.id"
-                            class="slide flex-item"
+                            class="edu-wrapper"
                         ><edu-item v-bind="item"></edu-item></div>
                     </div>
-                    <div v-if="isDesktop === false" class="carousel-control">
-                        <button @click="changeSlide(-1)">Prev</button>
-                        <button @click="changeSlide(1)">Next</button>
-                    </div>       
-                </div>
+                </template>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import MyCarousel from './carousel/MyCarousel.vue';
+import MySlide from './carousel/MySlide.vue';
 import EduItem from './EduItem.vue';
 export default {
     name: 'MyEdu',
     components: {
+        MyCarousel,
+        MySlide,
         EduItem
     },
     data() {
@@ -81,54 +85,22 @@ export default {
                     ]
                 }
             ],
-            currentSlide: 0,
-            carouselTransform: 'translateX(0px)',
             innerWidth: window.innerWidth
         }
     },
     computed: {
-        isDesktop() {
-            return this.innerWidth > 768 ? true : false;
-        }
-    },
-    watch: {
-        isDesktop() {
-            if (this.isDesktop) {
-                this.currentSlide = 0;
-                this.carouselTransform = 'translateX(0)';
-            }
+        isMobile() {
+            return this.innerWidth <= 768 ? true : false;
         }
     },
     beforeMount() {
-        this.initialize();
+        this.handleResize();
     },
     methods: {
-        initialize() {
-            this.addResizeHandler();
-        },
-        addResizeHandler() {
-            var vm = this;
-            window.addEventListener('resize', () => {
-                vm.innerWidth = window.innerWidth;
+        handleResize() {
+            window.addEventListener('resize', e => {
+                this.innerWidth = e.target.innerWidth;
             });
-        },
-        changeSlide(n) {
-            var vm = this;
-            var length = vm.eduList.length;
-            if (n === 1) {
-                if (vm.currentSlide === length - 1) {
-                    vm.currentSlide = 0;
-                } else {
-                    vm.currentSlide++;
-                }
-            } else if (n === -1) {
-                if (vm.currentSlide === 0) {
-                    vm.currentSlide = length - 1;
-                } else {
-                    vm.currentSlide--;
-                }
-            }
-            this.carouselTransform = `translateX(${ - 100 * vm.currentSlide / length }%)`;
         }
     }
 }

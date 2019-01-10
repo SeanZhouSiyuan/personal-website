@@ -17,7 +17,6 @@ export default {
     display: flex;
     // gives equal size to slide items
     flex: 1;
-    padding: 1.25rem 1rem;
 }
 </style>
 

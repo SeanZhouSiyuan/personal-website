@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <div class="carousel">
+    <div class="carousel">
+        <div class="slide-container">
             <div
                 :style="styleObj"
-                class="slide-container"
+                class="slide-track"
             ><slot></slot></div>
         </div>
         <slide-control @slidechange="changeSlide"></slide-control>
@@ -51,9 +51,11 @@ export default {
 
 <style lang="less" scoped>
 .carousel {
-    width: 100%;
-    overflow: hidden;
     .slide-container {
+        width: 100%;
+        overflow: hidden;
+    }
+    .slide-track {
         display: flex;
         transition: transform ease 500ms;
     }

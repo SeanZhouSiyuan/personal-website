@@ -20,6 +20,5 @@ export default {
 .slide-control {
     display: flex;
     justify-content: space-between;
-    padding: 0 1rem;
 }
 </style>

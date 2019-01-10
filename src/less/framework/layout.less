@@ -1,55 +1,6 @@
 * {
     box-sizing: border-box;
 }
-html {
-    font-size: 12px;
-}
-@media screen and (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
-body {
-    font-family: @font-stack;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: @black;
-}
-h1, h2, h3, h4, h5, h6, p {
-    margin: 0 0 1em;
-    line-height: 1.25;
-}
-h6, h5 {
-    font-size: 1rem;
-    font-weight: 400;
-}
-h4 {
-    font-size: 1.25rem;
-    font-weight: 400;
-}
-h3 {
-    font-size: 1.50rem;
-    font-weight: 400;
-}
-h2 {
-    font-size: 2.00rem;
-    font-weight: 400;
-}
-h1 {
-    font-size: 3.00rem;
-    font-weight: 300;
-}
-a {
-    color: @black;
-    text-decoration: none;
-}
-@media screen and (min-width: 768px) {
-    a {
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
 .content-desktop {
     display: none;
 }
@@ -62,24 +13,25 @@ a {
     }
 }
 .page {
+    padding: 2rem 0;
     min-height: 100vh;
     .heading {
         text-align: center;
     }
 }
+// restricts max width
+@media screen and (min-width: 768px) {
+    .page {
+        margin: 0 auto;
+        max-width: 1000px;
+    }
+}
+// adds white space on the edges
+@media screen and (min-width: 768px) {
+    .wrapper {
+        margin: 0 1rem;
+    }
+}
 .flex-container {
     display: flex;
-}
-.wrapper {
-    padding: 2.00rem 0;
-    margin: 0 auto;
-    max-width: 900px;
-}
-button {
-    padding: 0.25rem 0.5rem;
-    border: none;
-    outline: none;
-    background: none;
-    text-transform: uppercase;
-    .box-shadow();
 }

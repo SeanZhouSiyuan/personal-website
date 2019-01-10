@@ -4,7 +4,7 @@
 html {
     font-size: 12px;
 }
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 768px) {
     html {
         font-size: 16px;
     }
@@ -43,11 +43,22 @@ a {
     color: @black;
     text-decoration: none;
 }
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 768px) {
     a {
         &:hover {
             text-decoration: underline;
         }
+    }
+}
+.content-desktop {
+    display: none;
+}
+@media screen and (min-width: 768px) {
+    .content-mobile {
+        display: none;
+    }
+    .content-desktop {
+        display: block;
     }
 }
 .page {

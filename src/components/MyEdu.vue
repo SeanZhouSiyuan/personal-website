@@ -3,15 +3,15 @@
         <div class="wrapper">
             <h2 class="heading">Education</h2>
             <div class="content">
-                <template v-if="isMobile">
+                <div class="content-mobile">
                     <my-carousel>
                         <my-slide
                             v-for="item in eduList"
                             :key="item.id"
                         ><edu-item v-bind="item"></edu-item></my-slide>
                     </my-carousel>
-                </template>
-                <template v-else>
+                </div>
+                <div class="content-desktop">
                     <div class="flex-container">
                         <div
                             v-for="item in eduList"
@@ -19,7 +19,7 @@
                             class="edu-wrapper"
                         ><edu-item v-bind="item"></edu-item></div>
                     </div>
-                </template>
+                </div>  
             </div>
         </div>
     </div>
@@ -84,23 +84,7 @@ export default {
                         }
                     ]
                 }
-            ],
-            innerWidth: window.innerWidth
-        }
-    },
-    computed: {
-        isMobile() {
-            return this.innerWidth <= 768 ? true : false;
-        }
-    },
-    beforeMount() {
-        this.handleResize();
-    },
-    methods: {
-        handleResize() {
-            window.addEventListener('resize', e => {
-                this.innerWidth = e.target.innerWidth;
-            });
+            ]
         }
     }
 }

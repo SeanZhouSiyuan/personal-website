@@ -1,9 +1,11 @@
 <template>
-    <div class="carousel">
-        <div
-            :style="styleObj"
-            class="slide-container"
-        ><slot></slot></div>
+    <div>
+        <div class="carousel">
+            <div
+                :style="styleObj"
+                class="slide-container"
+            ><slot></slot></div>
+        </div>
         <slide-control @slidechange="changeSlide"></slide-control>
     </div>
 </template>

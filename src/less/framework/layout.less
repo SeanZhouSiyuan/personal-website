@@ -1,24 +1,21 @@
 * {
     box-sizing: border-box;
 }
-.content-desktop {
-    display: none;
-}
-@media screen and (min-width: 768px) {
-    .content-mobile {
-        display: none;
-    }
-    .content-desktop {
-        display: block;
-    }
-}
+// .content-desktop {
+//     display: none;
+// }
+// @media screen and (min-width: 768px) {
+//     .content-mobile {
+//         display: none;
+//     }
+//     .content-desktop {
+//         display: block;
+//     }
+// }
 .page {
-    padding: 2rem 0;
+    padding-top: 2.5rem;
     min-height: 100vh;
-    .heading {
-        margin-bottom: 3rem;
-        text-align: center;
-    }
+    overflow: auto;
 }
 // restricts max width
 @media screen and (min-width: 768px) {
@@ -27,12 +24,6 @@
         max-width: 1000px;
     }
 }
-// adds white space on the edges
-@media screen and (min-width: 768px) {
-    .wrapper {
-        margin: 0 1rem;
-    }
-}
-.flex-container {
-    display: flex;
+.wrapper {
+    margin: 0 1rem;
 }

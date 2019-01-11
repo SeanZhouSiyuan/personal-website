@@ -1,18 +1,18 @@
 <template>
   <div>
-    <my-intro></my-intro>
-    <my-edu></my-edu>
+    <page-home></page-home>
+    <page-intro></page-intro>
   </div>
 </template>
 
 <script>
-import MyIntro from '../components/MyIntro.vue';
-import MyEdu from '../components/MyEdu.vue';
+import PageHome from '../components/PageHome.vue';
+import PageIntro from '../components/PageIntro.vue';
 export default {
   name: 'Home',
   components: {
-    MyIntro,
-    MyEdu
+    PageHome,
+    PageIntro
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div id="page_intro" class="page flex-container">
+    <div id="page_home" class="page">
         <h1 class="title">Sean Zhou</h1>
         <h2 class="title-secondary">Student, front-end learner, liberal.</h2>
         <nav>
@@ -18,6 +18,6 @@
 
 <script>
 export default {
-    name: 'MyIntro'
+    name: 'PageHome'
 }
 </script>

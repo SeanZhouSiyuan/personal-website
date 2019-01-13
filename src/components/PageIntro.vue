@@ -2,9 +2,8 @@
     <div id="page_intro" class="page">
         <div class="wrapper">
             <div id="bio">
-                <h2 id="bio_heading">About Me</h2>
+                <h2 id="bio_heading">About me</h2>
                 <p id="bio_content">{{ bio }}</p>
-                <p id="bio_tip">To learn more about me, click on the issues.</p>
             </div>
             <div id="issues_box">
                 <div
@@ -27,7 +26,7 @@ export default {
     name: 'PageIntro',
     data() {
         return {
-            bio: 'I\'m Sean Zhou, a student and web developer. I study computer science at HKUST, and previously went to Shenzhen University for undergraduate degree. I have been learning front-end as well as back-end, mainly Node.js. I like swimming, running, and Cantonese food. I believe in love.',
+            bio: 'I am Sean Zhou, a full-stack web developer and student at HKUST. To learn more about me, click on the issues.',
             issues: [
                 {
                     icon: 'book-open',
@@ -38,6 +37,9 @@ export default {
                 }, {
                     icon: 'cogs',
                     text: 'Experiences'
+                }, {
+                    icon: 'trophy',
+                    text: 'Honors'
                 }
             ]
         }

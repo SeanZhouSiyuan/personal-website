@@ -48,9 +48,12 @@
         background: @white;
         user-select: none;
         .box-shadow();
-        transition: transform 0.25s ease-in-out;
+        transition:
+            transform 0.25s ease-in-out,
+            box-shadow 0.25s ease-in-out;
         &:hover {
-            transform: scale(1.03);
+            transform: scale(1.02);
+            .box-shadow-picked();
         }
     }
     .category-text {

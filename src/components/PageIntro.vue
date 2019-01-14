@@ -1,20 +1,20 @@
 <template>
     <div id="page_intro" class="page">
-        <div class="wrapper">
-            <div id="bio">
-                <h2 id="bio_heading">About me</h2>
-                <p id="bio_content">{{ bio }}</p>
-            </div>
-            <div id="issues_box">
+        <div id="intro_wrapper" class="wrapper">
+            <header id="intro_header" class="intro-column">
+                <h2>About me</h2>
+                <p>I am Sean Zhou, a full-stack web developer and student at HKUST. To learn more about me, click on a category.</p>
+            </header>
+            <div id="intro_categories" class="intro-column">
                 <div
-                    v-for="(item, index) in issues"
+                    v-for="(item, index) in categories"
                     :key="index"
-                    class="issue"
+                    class="category"
                 >
-                    <div class="issue-icon">
+                    <div class="category-icon">
                         <span :class="['fas', `fa-${item.icon}`]"></span>
                     </div>
-                    <h3 class="issue-text">{{ item.text }}</h3>
+                    <h3 class="category-text">{{ item.text }}</h3>
                 </div>
             </div>
         </div>
@@ -26,10 +26,9 @@ export default {
     name: 'PageIntro',
     data() {
         return {
-            bio: 'I am Sean Zhou, a full-stack web developer and student at HKUST. To learn more about me, click on the issues.',
-            issues: [
+            categories: [
                 {
-                    icon: 'book-open',
+                    icon: 'book',
                     text: 'Education'
                 }, {
                     icon: 'code',

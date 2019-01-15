@@ -18,16 +18,15 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        border: 1px solid #d1d5da;
+        border: 1px solid @gray;
         border-radius: 0.25rem;
     }
     .category {
         padding: 1.5rem;
         width: 100%;
-        border-bottom: 1px solid #d1d5da;
         user-select: none;
-        &:last-child {
-            border-bottom: none;
+        + .category {
+            border-top: 1px solid @gray;
         }
     }
     .category-text {
@@ -65,7 +64,7 @@
         .category {
             padding: 6rem 1.5rem;
             width: calc(50% - 0.75rem);
-            border: 1px solid #d1d5da;
+            border: 1px solid @gray;
             border-radius: 0.25rem;
             text-align: center;
             &:first-child {
@@ -73,9 +72,6 @@
             }
             &:nth-child(2) {
                 margin-bottom: 1.5rem;
-            }
-            &:last-child {
-                border-bottom: 1px solid #d1d5da;
             }
         }
         .category-text {

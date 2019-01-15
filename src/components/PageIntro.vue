@@ -3,7 +3,7 @@
         <div id="intro_wrapper" class="wrapper">
             <header id="intro_header" class="intro-column">
                 <h2>About me</h2>
-                <p>I am Sean Zhou, a full-stack web developer and student at HKUST. To learn more about me, click on a category.</p>
+                <p>Hi there. My name is Sean Zhou. I am a web developer and graduate student at HKUST. To learn more about me, select a category.</p>
             </header>
             <div id="intro_categories" class="intro-column">
                 <div

@@ -17,6 +17,11 @@
                     <h3 class="category-text">{{ item.text }}</h3>
                 </div>
             </div>
+            <div id="intro_overlay">
+                <div class="wrapper">
+                    <div id="overlay_entries"></div>
+                </div>
+            </div>
         </div>
     </div>
 </template>

@@ -18,8 +18,18 @@
                 </div>
             </div>
             <div id="intro_overlay">
-                <div class="wrapper">
-                    <div id="overlay_entries"></div>
+                <div id="overlay_wrapper" class="wrapper">
+                    <div id="entries_box">
+                        <div
+                            v-for="(item, index) in edu"
+                            :key="index"
+                            class="entry"
+                        >
+                            <p class="entry-meta">{{ item.period }}</p>
+                            <h3 class="entry-heading">{{ item.entity }}</h3>
+                            <p>{{ item.desc }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -44,6 +54,41 @@ export default {
                 }, {
                     icon: 'trophy',
                     text: 'Honors'
+                }
+            ],
+            edu: [
+                {
+                    entity: 'The Hong Kong University of Science and Technology',
+                    period: '2018.09-present',
+                    desc: 'Master of Science in Information Technology, expected June 2019'
+                }, {
+                    entity: 'Shenzhen University',
+                    period: '2014.10-2018.06',
+                    desc: 'Bachelor of Engineering in Telecommunication, with a GPA of 3.8/4.0'
+                }, {
+                    entity: 'The University of California San Diego',
+                    period: '2017.08-2017.12',
+                    desc: 'Visiting student enrolled in Language and American Culture program'
+                }
+            ],
+            skills: [
+                'HTML',
+                'CSS',
+                'JavaScript',
+                'Node.js',
+                'MongoDB'
+            ],
+            experiences: [
+                {
+                    entity: 'Magnum Research Limited',
+                    period: '2018.10 - present',
+                    title: 'Front-end Intern',
+                    desc: 'Studied asynchronous JavaScript; Assisted in implementing a single-page site with Vue.js'
+                }, {
+                    entity: 'Haituncun Information Technology Limited',
+                    period: '2017.05 - 2017.08',
+                    title: 'Front-end Intern',
+                    desc: 'Assists in implementing an performance visualization website using Vue.js and charting libraries'
                 }
             ]
         }

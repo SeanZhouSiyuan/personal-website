@@ -26,6 +26,9 @@
                                 :key="index"
                                 class="entry"
                             >
+                                <svg class="entry-indicator">
+                                    <circle cx="6" cy="6" r="5" />
+                                </svg>
                                 <p class="entry-meta">{{ item.period }}</p>
                                 <h3 class="entry-heading">{{ item.entity }}</h3>
                                 <p>{{ item.desc }}</p>

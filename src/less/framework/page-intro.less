@@ -54,7 +54,7 @@
         height: 100vh;
     }
     #entries_box {
-        padding: 1.5rem 1.5rem 0.5rem 1.75rem;
+        padding: 1.5rem 1.5rem 0.5rem calc(1.5rem + 6px);
         border: 1px solid @gray;
         border-radius: 0.25rem;
         width: 100%;
@@ -67,7 +67,7 @@
     }
     .entry {
         position: relative;
-        margin-left: 1.75rem;
+        margin-left: calc(1.5rem + 6px);
         p {
             line-height: 1.5;
         }
@@ -78,17 +78,18 @@
         + .entry {
             margin-top: 2rem;
         }
-        &::after {
+        .entry-indicator {
             position: absolute;
-            content: '';
             top: 0.5rem;
-            left: calc(-1.75rem - 6px);
-            width: 9px;
-            height: 9px;
-            background: @white;
-            border: 1px solid @black;
-            border-radius: 9px;
+            left: calc(-1.5rem - 6px - 6.5px);
+            width: 16px;
+            height: 16px;
             z-index: 1;
+            circle {
+                stroke: @black;
+                stroke-width: 1px;
+                fill: @white;
+            }
         }
     }
     .entry-meta {

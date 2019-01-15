@@ -54,27 +54,20 @@
         height: 100vh;
     }
     #entries_box {
-        position: relative;
-        padding: 1.5rem 1.5rem 0.5rem;
+        padding: 1.5rem 1.5rem 0.5rem 1.75rem;
         border: 1px solid @gray;
         border-radius: 0.25rem;
         width: 100%;
         max-height: calc(100vh - 4rem);
         overflow: auto;
         background: @white;
-        &::after {
-            position: absolute;
-            content: '';
-            top: 1.5rem;
-            bottom: 1.5rem;
-            left: 1.75rem;
-            width: 1px;
-            background: @gray;
-        }
+    }
+    .timeline {
+        border-left: 1px solid @gray;
     }
     .entry {
         position: relative;
-        margin-left: 2rem;
+        margin-left: 1.75rem;
         p {
             line-height: 1.5;
         }
@@ -89,12 +82,12 @@
             position: absolute;
             content: '';
             top: 0.5rem;
-            left: -2rem;
-            width: 0.5rem;
-            height: 0.5rem;
+            left: calc(-1.75rem - 6px);
+            width: 9px;
+            height: 9px;
             background: @white;
             border: 1px solid @black;
-            border-radius: 0.5rem;
+            border-radius: 9px;
             z-index: 1;
         }
     }

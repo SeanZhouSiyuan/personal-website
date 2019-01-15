@@ -20,14 +20,16 @@
             <div id="intro_overlay">
                 <div id="overlay_wrapper" class="wrapper">
                     <div id="entries_box">
-                        <div
-                            v-for="(item, index) in edu"
-                            :key="index"
-                            class="entry"
-                        >
-                            <p class="entry-meta">{{ item.period }}</p>
-                            <h3 class="entry-heading">{{ item.entity }}</h3>
-                            <p>{{ item.desc }}</p>
+                        <div class="timeline">
+                            <div
+                                v-for="(item, index) in edu"
+                                :key="index"
+                                class="entry"
+                            >
+                                <p class="entry-meta">{{ item.period }}</p>
+                                <h3 class="entry-heading">{{ item.entity }}</h3>
+                                <p>{{ item.desc }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

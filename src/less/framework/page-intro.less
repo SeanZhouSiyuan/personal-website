@@ -46,10 +46,12 @@
         right: 0;
         bottom: 0;
         left: 0;
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.9);
     }
     #overlay_wrapper {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
         height: 100vh;
     }
@@ -57,10 +59,25 @@
         padding: 1.5rem 1.5rem 1rem;
         border: 1px solid @gray;
         border-radius: 0.25rem;
+        margin-top: 2rem;
         width: 100%;
-        max-height: calc(100vh - 4rem);
+        max-height: calc(100vh - 7rem);
         overflow: auto;
         background: @white;
+    }
+    #entries_close {
+        padding: 0.5rem;
+        margin: 1rem 0;
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        background-color: @gray-light;
+        &:hover {
+            cursor: pointer;
+        }
+        path {
+            fill: @gray-dark;
+        }
     }
     .timeline {
         padding-left: calc(1.5rem + 5px);

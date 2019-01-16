@@ -67,13 +67,13 @@ export default {
                     period: '2018.09-present',
                     desc: 'Master of Science in Information Technology, expected June 2019'
                 }, {
-                    entity: 'Shenzhen University',
-                    period: '2014.10-2018.06',
-                    desc: 'Bachelor of Engineering in Telecommunication, with a GPA of 3.8/4.0'
-                }, {
                     entity: 'The University of California San Diego',
                     period: '2017.08-2017.12',
                     desc: 'Visiting student enrolled in Language and American Culture program'
+                }, {
+                    entity: 'Shenzhen University',
+                    period: '2014.10-2018.06',
+                    desc: 'Bachelor of Engineering in Telecommunication, with a GPA of 3.8/4.0'
                 }
             ],
             skills: [

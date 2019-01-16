@@ -54,7 +54,7 @@
         height: 100vh;
     }
     #entries_box {
-        padding: 1.5rem 1.5rem 0.5rem calc(1.5rem + 6px);
+        padding: 1.5rem 1.5rem 0.5rem;
         border: 1px solid @gray;
         border-radius: 0.25rem;
         width: 100%;
@@ -63,11 +63,12 @@
         background: @white;
     }
     .timeline {
-        border-left: 1px solid @gray;
+        border-left: 2px solid @gray;
+        margin-left: 5px;
     }
     .entry {
         position: relative;
-        margin-left: calc(1.5rem + 6px);
+        margin-left: calc(1.5rem + 5px);
         p {
             line-height: 1.5;
         }
@@ -80,15 +81,15 @@
         }
         .entry-indicator {
             position: absolute;
-            top: 0.5rem;
-            left: calc(-1.5rem - 6px - 6.5px);
-            width: 16px;
-            height: 16px;
+            top: 7px;
+            left: calc(-1.5rem - 5px - 7px);
+            width: 12px;
+            height: 12px;
             z-index: 1;
             circle {
-                stroke: @black;
-                stroke-width: 1px;
-                fill: @white;
+                stroke: @gray;
+                stroke-width: 2px;
+                fill: @gray;
             }
         }
     }

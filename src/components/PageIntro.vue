@@ -88,12 +88,12 @@ export default {
                     entity: 'Magnum Research Limited',
                     period: '2018.10 - present',
                     title: 'Front-end Intern',
-                    desc: 'Studied asynchronous JavaScript; Assisted in implementing a single-page site with Vue.js'
+                    desc: 'Assists in building an performance visualization website using Vue.js and charting libraries'
                 }, {
                     entity: 'Haituncun Information Technology Limited',
                     period: '2017.05 - 2017.08',
                     title: 'Front-end Intern',
-                    desc: 'Assists in implementing an performance visualization website using Vue.js and charting libraries'
+                    desc: 'Studied asynchronous JavaScript; Assisted in implementing a single-page site with Vue.js'
                 }
             ]
         }

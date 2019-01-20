@@ -18,7 +18,7 @@
                     <h3 class="category-text">{{ item.title }}</h3>
                 </div>
             </div>
-            <div :style="overlay.styles" id="intro_overlay">
+            <div id="intro_overlay" :class="{open: overlay.IsOpen}">
                 <div id="overlay_wrapper" class="wrapper">
                     <div id="entries_box">
                         <div :class="{timeline: overlay.hasTimeline}">
@@ -59,10 +59,7 @@ export default {
             overlay: {
                 content: [],
                 hasTimeline: false,
-                styles: {
-                    display: 'none',
-                    opacity: '0'
-                }
+                IsOpen: false
             },
             categories: [
                 {
@@ -124,20 +121,15 @@ export default {
     methods: {
         toggleOverlay(index) {
             let overlay = this.overlay;
+            let category = this.categories[index];
             if (index >= 0) {
-                overlay.content = this.categories[index].content;
-                overlay.hasTimeline = this.categories[index].hasTimeline;
+                overlay.content = category.content;
+                overlay.hasTimeline = category.hasTimeline;
             }
-            if (overlay.styles.display === 'none') {
-                overlay.styles.display = 'block';
-                setTimeout(() => {
-                    overlay.styles.opacity = '1';
-                });
+            if (overlay.IsOpen === false) {
+                overlay.IsOpen = true;
             } else {
-                overlay.styles.opacity = '0';
-                setTimeout(() => {
-                    overlay.styles.display = 'none';
-                }, 250);
+                overlay.IsOpen = false;
             }
         }
     }

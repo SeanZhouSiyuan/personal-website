@@ -20,22 +20,25 @@
             </div>
             <div id="intro_overlay" :class="{open: overlay.IsOpen}">
                 <div id="overlay_wrapper" class="wrapper">
-                    <div id="entries_box">
-                        <div :class="{timeline: overlay.hasTimeline}">
+                    <div id="entries_wrapper">
+                        <div :id="`entries_${overlay.type}`">
                             <div
                                 v-for="(item, index) in overlay.content"
                                 :key="index"
                                 class="entry"
                             >
-                                <svg
-                                    v-if="overlay.hasTimeline"
-                                    class="indicator"
-                                >
-                                    <circle cx="6" cy="6" r="5" />
-                                </svg>
-                                <p>{{ item.period }}</p>
-                                <h3>{{ item.entity }}</h3>
-                                <p>{{ item.desc }}</p>
+                                <template v-if="overlay.type === 'timeline'">
+                                    <svg class="indicator">
+                                        <circle cx="6" cy="6" r="5" />
+                                    </svg>
+                                    <p>{{ item.period }}</p>
+                                    <h3>{{ item.entity }}</h3>
+                                    <p v-if="item.title">{{ item.title }}</p>
+                                    <p>{{ item.desc }}</p>
+                                </template>
+                                <template v-else-if="overlay.type === 'skills'">
+                                </template>
+                                <template v-else></template>
                             </div>
                         </div>
                     </div>
@@ -58,14 +61,14 @@ export default {
         return {
             overlay: {
                 content: [],
-                hasTimeline: false,
+                type: '',
                 IsOpen: false
             },
             categories: [
                 {
                     icon: 'book',
                     title: 'Education',
-                    hasTimeline: true,
+                    type: 'timeline',
                     content: [
                         {
                             entity: 'The Hong Kong University of Science and Technology',
@@ -84,18 +87,26 @@ export default {
                 }, {
                     icon: 'code',
                     title: 'Skills',
-                    hasTimeline: false,
+                    type: 'skills',
                     content: [
-                        'HTML',
-                        'CSS',
-                        'JavaScript',
-                        'Node.js',
-                        'MongoDB'
+                        {
+                            name: 'HTML',
+                        }, {
+                            name: 'CSS',
+                        }, {
+                            name: 'JavaScript'
+                        }, {
+                            name: 'Vue'
+                        }, {
+                            name: 'Node.js'
+                        }, {
+                            name: 'MongoDB'
+                        }
                     ]
                 }, {
                     icon: 'cogs',
                     title: 'Experiences',
-                    hasTimeline: true,
+                    type: 'timeline',
                     content: [
                         {
                             entity: 'Magnum Research Limited',
@@ -112,7 +123,7 @@ export default {
                 }, {
                     icon: 'trophy',
                     title: 'Honors',
-                    hasTimeline: false,
+                    type: '',
                     content: []
                 }
             ]
@@ -124,13 +135,9 @@ export default {
             let category = this.categories[index];
             if (index >= 0) {
                 overlay.content = category.content;
-                overlay.hasTimeline = category.hasTimeline;
+                overlay.type = category.type;
             }
-            if (overlay.IsOpen === false) {
-                overlay.IsOpen = true;
-            } else {
-                overlay.IsOpen = false;
-            }
+            overlay.IsOpen = !overlay.IsOpen;
         }
     }
 }

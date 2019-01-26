@@ -36,7 +36,10 @@
                                     <p v-if="item.title">{{ item.title }}</p>
                                     <p>{{ item.desc }}</p>
                                 </template>
-                                <template v-else-if="overlay.type === 'skills'">
+                                <template v-else-if="overlay.type === 'circles'">
+                                    <div class="single-skill">
+                                        {{ item.name }}
+                                    </div>
                                 </template>
                                 <template v-else></template>
                             </div>
@@ -87,7 +90,7 @@ export default {
                 }, {
                     icon: 'code',
                     title: 'Skills',
-                    type: 'skills',
+                    type: 'circles',
                     content: [
                         {
                             name: 'HTML',

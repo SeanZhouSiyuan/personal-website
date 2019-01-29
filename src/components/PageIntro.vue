@@ -41,7 +41,10 @@
                                         {{ item.name }}
                                     </div>
                                 </template>
-                                <template v-else></template>
+                                <template v-else>
+                                    <h3>{{ item.title }}</h3>
+                                    <p>{{ item.text }}</p>
+                                </template>
                             </div>
                         </div>
                     </div>
@@ -125,9 +128,17 @@ export default {
                     ]
                 }, {
                     icon: 'trophy',
-                    title: 'Honors',
+                    title: 'More',
                     type: '',
-                    content: []
+                    content: [
+                        {
+                            title: 'Films',
+                            text: '🌌Star Wars, watched all the titles'
+                        }, {
+                            title: 'Sports',
+                            text: '🏊Swimming, 🏃running, and 🚴cycling'
+                        }
+                    ]
                 }
             ]
         }

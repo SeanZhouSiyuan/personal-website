@@ -37,8 +37,14 @@
                                     <p>{{ item.desc }}</p>
                                 </template>
                                 <template v-else-if="overlay.type === 'circles'">
-                                    <div class="single-skill">
-                                        {{ item.name }}
+                                    <div
+                                        :class="[
+                                            'single-skill',
+                                            item.name.toLowerCase()
+                                        ]">
+                                        <img
+                                            :src="item.logo"
+                                            :alt="item.name">
                                     </div>
                                 </template>
                                 <template v-else>
@@ -97,16 +103,22 @@ export default {
                     content: [
                         {
                             name: 'HTML',
+                            logo: require('./../assets/html_logo.svg')
                         }, {
                             name: 'CSS',
+                            logo: require('./../assets/css_logo.svg')
                         }, {
-                            name: 'JavaScript'
+                            name: 'JavaScript',
+                            logo: require('./../assets/js_logo.svg')
                         }, {
-                            name: 'Vue'
+                            name: 'Vue',
+                            logo: require('./../assets/vue_logo.svg')
                         }, {
-                            name: 'Node.js'
+                            name: 'Node',
+                            logo: require('./../assets/node_logo.svg')
                         }, {
-                            name: 'MongoDB'
+                            name: 'MongoDB',
+                            logo: require('./../assets/mongo_logo.svg')
                         }
                     ]
                 }, {

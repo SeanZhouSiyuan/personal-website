@@ -120,9 +120,58 @@
         flex-wrap: wrap;
         .entry {
             .single-skill {
-                border: 1px solid @gray;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 border-radius: 50%;
-                text-align: center;
+                border: 1px solid hsl(0, 0%, 96%);
+                background: linear-gradient(
+                    hsl(0, 0%, 100%),
+                    hsl(0, 0%, 96%)
+                );
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                img {
+                    width: auto;
+                }
+                &.html, &.css {
+                    img {
+                        height: 1rem;
+                    }
+                }
+                &.javascript {
+                    border: 1px solid hsl(53, 96%, 50%);
+                    background: linear-gradient(
+                        hsl(53, 100%, 50%),
+                        hsl(53, 96%, 50%)
+                    );
+                    // font-family: NeutraTextBold;
+                    // font-size: 1.75rem;
+                    // color: black;
+                    img {
+                        height: 1.75rem;
+                    }
+                }
+                &.vue {
+                    img {
+                        margin-top: calc(2.75rem / 3);
+                        height: 2.75rem;
+                    }
+                }
+                &.node {
+                    img {
+                        height: 1.75rem;
+                    }
+                }
+                &.mongodb {
+                    border: 1px solid hsl(255, 3%, 26%);
+                    background: linear-gradient(
+                        hsl(255, 7%, 26%),
+                        hsl(255, 3%, 26%)
+                    );
+                    img {
+                        height: 3.75rem;
+                    }
+                }
             }
         }
     }
@@ -180,9 +229,35 @@
                 padding-bottom: 3rem;
                 width: calc(100% / 3);
                 .single-skill {
-                    width: 150px;
-                    height: 150px;
-                    line-height: 150px;
+                    width: 160px;
+                    height: 160px;
+                    line-height: 160px;
+                    &.html, &.css {
+                        img {
+                            height: 1.75rem;
+                        }
+                    }
+                    &.javascript {
+                        img {
+                            height: 2.5rem;
+                        }
+                    }
+                    &.vue {
+                        img {
+                            margin-top: calc(4.25rem / 3);
+                            height: 4.25rem;
+                        }
+                    }
+                    &.node {
+                        img {
+                            height: 2.5rem;
+                        }
+                    }
+                    &.mongodb {
+                        img {
+                            height: 5.5rem;
+                        }
+                    }
                 }
                 &:nth-child(3n + 1) {
                     padding-right: 1rem;
@@ -191,8 +266,8 @@
                     }
                 }
                 &:nth-child(3n + 2) {
-                    padding-left: calc((100% / 3 - 150px) / 2);
-                    padding-right: calc((100% / 3 - 150px) / 2);
+                    padding-left: calc((100% / 3 - 160px) / 2);
+                    padding-right: calc((100% / 3 - 160px) / 2);
                 }
                 &:nth-child(3n + 3) {
                     padding-left: 1rem;

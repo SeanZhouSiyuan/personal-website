@@ -18,17 +18,14 @@
                     <h3 class="category-text">{{ item.title }}</h3>
                 </div>
             </div>
-            <div id="intro_overlay" :class="{open: overlay.IsOpen}">
+            <div id="intro_overlay" :class="{open: overlay.open}">
                 <div class="overlay-wrapper wrapper">
-                    <div
-                        v-for="(category, index) in categories"
-                        :key="index"
-                        :class="{
-                            'entries-wrapper': true,
-                            'active': category.active
-                        }"
-                    >
-                        <div :class="['entries', category.type]">
+                    <div class="entries-wrapper">
+                        <div
+                            v-for="(category, index) in categories"
+                            :key="index"
+                            :class="['entries', category.type, category.active ? 'active' : '']"
+                        >
                             <div
                                 v-for="(item, index) in category.content"
                                 :key="index"
@@ -63,7 +60,7 @@
                     </div>
                     <svg
                         viewBox="0 0 32 32"
-                        id="entries_close"
+                        id="overlay_button"
                         @click="toggleOverlay(-1)">
                         <path d="M 7.21875 5.78125 L 5.78125 7.21875 L 14.5625 16 L 5.78125 24.78125 L 7.21875 26.21875 L 16 17.4375 L 24.78125 26.21875 L 26.21875 24.78125 L 17.4375 16 L 26.21875 7.21875 L 24.78125 5.78125 L 16 14.5625 Z "/>
                     </svg>
@@ -79,7 +76,7 @@ export default {
     data() {
         return {
             overlay: {
-                IsOpen: false
+                open: false
             },
             categories: [
                 {
@@ -165,19 +162,17 @@ export default {
         }
     },
     methods: {
-        toggleOverlay(index) {
-            let overlay = this.overlay;
-            let categories = this.categories;
-            if (index >= 0) {
-                categories.forEach((category, i) => {
-                    if (i === index) {
+        toggleOverlay(n) {
+            if (n >= 0) {
+                this.categories.forEach((category, index) => {
+                    if (index === n) {
                         category.active = true;
                     } else {
                         category.active = false;
                     }
                 });
             }
-            overlay.IsOpen = !overlay.IsOpen;
+            this.overlay.open = !this.overlay.open;
         }
     }
 }

@@ -65,17 +65,13 @@
         height: 100vh;
     }
     .entries-wrapper {
-        display: none;
         padding: 1.5rem 1.5rem 1rem;
         margin-top: 2rem;
         max-height: calc(100vh - 7rem);
         overflow: auto;
         background: @white;
-        &.active {
-            display: block;
-        }
     }
-    #entries_close {
+    #overlay_button {
         padding: 0.5rem;
         margin: 1rem 0;
         border-radius: 50%;
@@ -175,6 +171,9 @@
                 }
             }
         }
+    }
+    .entries:not(.active) {
+        display: none;
     }
     @media screen and (max-width: 767px) {
         .entries.circles {

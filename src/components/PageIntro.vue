@@ -7,9 +7,9 @@
             </header>
             <div id="intro_categories" class="intro-column">
                 <div
-                    v-for="(item, index) in categories"
-                    :key="index"
-                    @click="toggleOverlay(index)"
+                    v-for="item in categories"
+                    :key="item.id"
+                    @click="toggleOverlay(item.id)"
                     class="category"
                 >
                     <div class="category-icon">
@@ -22,9 +22,13 @@
                 <div class="overlay-wrapper wrapper">
                     <div class="entries-wrapper">
                         <div
-                            v-for="(category, index) in categories"
-                            :key="index"
-                            :class="['entries', category.type, category.active ? 'active' : '']"
+                            v-for="category in categories"
+                            :key="category.id"
+                            :class="[
+                                'entries',
+                                category.type,
+                                category.id === overlay.ref ? 'active' : ''
+                            ]"
                         >
                             <div
                                 v-for="(item, index) in category.content"
@@ -76,14 +80,15 @@ export default {
     data() {
         return {
             overlay: {
-                open: false
+                open: false,
+                ref: null
             },
             categories: [
                 {
+                    id: 1,
                     icon: 'book',
                     title: 'Education',
                     type: 'timeline',
-                    active: false,
                     content: [
                         {
                             entity: 'The Hong Kong University of Science and Technology',
@@ -100,10 +105,10 @@ export default {
                         }
                     ]
                 }, {
+                    id: 2,
                     icon: 'code',
                     title: 'Skills',
                     type: 'circles',
-                    active: false,
                     content: [
                         {
                             name: 'HTML',
@@ -126,10 +131,10 @@ export default {
                         }
                     ]
                 }, {
+                    id: 3,
                     icon: 'cogs',
                     title: 'Experiences',
                     type: 'timeline',
-                    active: false,
                     content: [
                         {
                             entity: 'Magnum Research Limited',
@@ -144,10 +149,10 @@ export default {
                         }
                     ]
                 }, {
+                    id: 4,
                     icon: 'trophy',
                     title: 'More',
                     type: '',
-                    active: false,
                     content: [
                         {
                             title: 'Films',
@@ -164,13 +169,7 @@ export default {
     methods: {
         toggleOverlay(n) {
             if (n >= 0) {
-                this.categories.forEach((category, index) => {
-                    if (index === n) {
-                        category.active = true;
-                    } else {
-                        category.active = false;
-                    }
-                });
+                this.overlay.ref = n;
             }
             this.overlay.open = !this.overlay.open;
         }

@@ -19,15 +19,22 @@
                 </div>
             </div>
             <div id="intro_overlay" :class="{open: overlay.IsOpen}">
-                <div id="overlay_wrapper" class="wrapper">
-                    <div id="entries_wrapper">
-                        <div :id="`entries_${overlay.type}`">
+                <div class="overlay-wrapper wrapper">
+                    <div
+                        v-for="(category, index) in categories"
+                        :key="index"
+                        :class="{
+                            'entries-wrapper': true,
+                            'active': category.active
+                        }"
+                    >
+                        <div :class="['entries', category.type]">
                             <div
-                                v-for="(item, index) in overlay.content"
+                                v-for="(item, index) in category.content"
                                 :key="index"
                                 class="entry"
                             >
-                                <template v-if="overlay.type === 'timeline'">
+                                <template v-if="category.type === 'timeline'">
                                     <svg class="indicator">
                                         <circle cx="6" cy="6" r="5" />
                                     </svg>
@@ -36,7 +43,7 @@
                                     <p v-if="item.title">{{ item.title }}</p>
                                     <p>{{ item.desc }}</p>
                                 </template>
-                                <template v-else-if="overlay.type === 'circles'">
+                                <template v-else-if="category.type === 'circles'">
                                     <div
                                         :class="[
                                             'single-skill',
@@ -72,8 +79,6 @@ export default {
     data() {
         return {
             overlay: {
-                content: [],
-                type: '',
                 IsOpen: false
             },
             categories: [
@@ -81,6 +86,7 @@ export default {
                     icon: 'book',
                     title: 'Education',
                     type: 'timeline',
+                    active: false,
                     content: [
                         {
                             entity: 'The Hong Kong University of Science and Technology',
@@ -100,6 +106,7 @@ export default {
                     icon: 'code',
                     title: 'Skills',
                     type: 'circles',
+                    active: false,
                     content: [
                         {
                             name: 'HTML',
@@ -125,6 +132,7 @@ export default {
                     icon: 'cogs',
                     title: 'Experiences',
                     type: 'timeline',
+                    active: false,
                     content: [
                         {
                             entity: 'Magnum Research Limited',
@@ -142,6 +150,7 @@ export default {
                     icon: 'trophy',
                     title: 'More',
                     type: '',
+                    active: false,
                     content: [
                         {
                             title: 'Films',
@@ -158,10 +167,15 @@ export default {
     methods: {
         toggleOverlay(index) {
             let overlay = this.overlay;
-            let category = this.categories[index];
+            let categories = this.categories;
             if (index >= 0) {
-                overlay.content = category.content;
-                overlay.type = category.type;
+                categories.forEach((category, i) => {
+                    if (i === index) {
+                        category.active = true;
+                    } else {
+                        category.active = false;
+                    }
+                });
             }
             overlay.IsOpen = !overlay.IsOpen;
         }

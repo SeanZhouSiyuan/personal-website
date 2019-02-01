@@ -172,7 +172,6 @@ export default {
                 this.overlay.ref = n;
             }
             this.overlay.open = !this.overlay.open;
-            document.body.classList.toggle('covered');
         }
     }
 }

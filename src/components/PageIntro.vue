@@ -19,8 +19,8 @@
                 </div>
             </div>
             <div id="intro_overlay" :class="{open: overlay.open}">
-                <div class="overlay-wrapper wrapper">
-                    <div class="entries-wrapper">
+                <div class="overlay-wrapper">
+                    <div class="entries-wrapper wrapper">
                         <div
                             v-for="category in categories"
                             :key="category.id"
@@ -172,6 +172,7 @@ export default {
                 this.overlay.ref = n;
             }
             this.overlay.open = !this.overlay.open;
+            document.body.classList.toggle('covered');
         }
     }
 }

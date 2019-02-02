@@ -9,7 +9,7 @@
                 <div
                     v-for="item in categories"
                     :key="item.id"
-                    @click="toggleOverlay(item.id)"
+                    @click="toggleOverlay(item.id, item.title)"
                     class="category"
                 >
                     <div class="category-icon">
@@ -19,15 +19,22 @@
                 </div>
             </div>
             <div id="intro_overlay" :class="{open: overlay.open}">
+                <header class="overlay-header">
+                    <h2 class="overlay-title">{{ overlay.title }}</h2>
+                </header>
                 <div class="overlay-wrapper">
-                    <div class="entries-wrapper wrapper">
+                    <div
+                        v-for="category in categories"
+                        :key="category.id"
+                        :class="[
+                            'entries-wrapper',
+                            'wrapper',
+                            category.id === overlay.ref ? 'active' : ''
+                        ]">
                         <div
-                            v-for="category in categories"
-                            :key="category.id"
                             :class="[
                                 'entries',
-                                category.type,
-                                category.id === overlay.ref ? 'active' : ''
+                                category.type
                             ]"
                         >
                             <div
@@ -62,13 +69,13 @@
                             </div>
                         </div>
                     </div>
-                    <svg
-                        viewBox="0 0 32 32"
-                        id="overlay_button"
-                        @click="toggleOverlay(-1)">
-                        <path d="M 7.21875 5.78125 L 5.78125 7.21875 L 14.5625 16 L 5.78125 24.78125 L 7.21875 26.21875 L 16 17.4375 L 24.78125 26.21875 L 26.21875 24.78125 L 17.4375 16 L 26.21875 7.21875 L 24.78125 5.78125 L 16 14.5625 Z "/>
-                    </svg>
                 </div>
+                <svg
+                    viewBox="0 0 32 32"
+                    id="overlay_button"
+                    @click="toggleOverlay(-1)">
+                    <path d="M 7.21875 5.78125 L 5.78125 7.21875 L 14.5625 16 L 5.78125 24.78125 L 7.21875 26.21875 L 16 17.4375 L 24.78125 26.21875 L 26.21875 24.78125 L 17.4375 16 L 26.21875 7.21875 L 24.78125 5.78125 L 16 14.5625 Z "/>
+                </svg>
             </div>
         </div>
     </div>
@@ -80,6 +87,7 @@ export default {
     data() {
         return {
             overlay: {
+                title: '',
                 open: false,
                 ref: null
             },
@@ -167,9 +175,10 @@ export default {
         }
     },
     methods: {
-        toggleOverlay(n) {
-            if (n >= 0) {
-                this.overlay.ref = n;
+        toggleOverlay(id, title) {
+            if (id >= 0) {
+                this.overlay.ref = id;
+                this.overlay.title = title;
             }
             this.overlay.open = !this.overlay.open;
         }

@@ -50,14 +50,37 @@
         left: 0;
         background: rgba(255, 255, 255, 1);
         pointer-events: none;
-        transform: scale(0.95);
         opacity: 0;
-        transition: all 0.25s;
+        transition: opacity 0.4s;
+        .overlay-wrapper {
+            transform: scale(0.95);
+            transition: transform 0.4s;
+        }
         &.open {
             pointer-events: auto;
-            transform: scale(1);
             opacity: 1;
+            .overlay-wrapper {
+                transform: scale(1);
+            }
         }
+    }
+    .overlay-header {
+        position: fixed;
+        top: 1rem;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        z-index: 1;
+    }
+    .overlay-title {
+        padding: 0.5em 0.75em;
+        border-radius: 4px;
+        margin: 0 auto;
+        line-height: 1;
+        font-size: 1.25rem;
+        background-color: @white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
     .overlay-wrapper {
         height: 100vh;
@@ -81,14 +104,16 @@
         border-radius: 50%;
         width: 2.5rem;
         height: 2.5rem;
-        background-color: @gray-light;
+        background-color: @white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.4s;
         cursor: pointer;
         path {
             fill: @gray-dark;
         }
     }
     .entries {
-        margin: 2rem 0 4.5rem;
+        margin: calc(2rem + 2.5rem) 0 4.5rem;
     }
     .entries.timeline {
         padding: 0.75rem 0 0.75rem calc(1.25rem + 5px);
@@ -141,7 +166,7 @@
                     hsl(0, 0%, 100%),
                     hsl(0, 0%, 96%)
                 );
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
                 img {
                     width: auto;
                 }
@@ -184,7 +209,7 @@
             }
         }
     }
-    .entries:not(.active) {
+    .entries-wrapper:not(.active) {
         display: none;
     }
     @media screen and (max-width: 768px) {
@@ -236,8 +261,14 @@
                 font-size: 3rem;
             }
         }
+        .overlay-header {
+            top: 2rem;
+        }
+        .overlay-title {
+            font-size: 1.5rem;
+        }
         .entries {
-            margin-bottom: 6rem;
+            margin: calc(3rem + 3rem) 0 6rem;
         }
         #overlay_button {
             bottom: 2rem;

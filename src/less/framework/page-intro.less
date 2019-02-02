@@ -50,10 +50,12 @@
         left: 0;
         background: rgba(255, 255, 255, 1);
         pointer-events: none;
+        transform: scale(0.95);
         opacity: 0;
-        transition: opacity 0.25s;
+        transition: all 0.25s;
         &.open {
             pointer-events: auto;
+            transform: scale(1);
             opacity: 1;
         }
     }

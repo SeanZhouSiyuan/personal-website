@@ -52,24 +52,28 @@
         pointer-events: none;
         opacity: 0;
         transition: opacity 0.4s;
-        .overlay-wrapper {
-            transform: scale(0.95);
-            transition: transform 0.4s;
-        }
         &.open {
             pointer-events: auto;
             opacity: 1;
-            .overlay-wrapper {
+            #overlay_header {
+                transform: translateY(1rem);
+            }
+            #overlay_wrapper {
                 transform: scale(1);
+            }
+            #overlay_control {
+                transform: translateY(-1rem);
             }
         }
     }
-    .overlay-header {
-        position: fixed;
-        top: 1rem;
+    #overlay_header {
+        position: absolute;
+        top: 0;
         left: 0;
         display: flex;
         justify-content: center;
+        transform: translateY(-4rem);
+        transition: transform 0.4s;
         width: 100%;
         z-index: 1;
     }
@@ -82,10 +86,33 @@
         background-color: @white;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
-    .overlay-wrapper {
+    #overlay_wrapper {
         height: 100vh;
         overflow: auto;
         background: @white;
+        transform: scale(0.95);
+        transition: transform 0.4s;
+    }
+    #overlay_control {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        transform: translateY(4rem);
+        transition: transform 0.4s;
+    }
+    #overlay_button {
+        padding: 0.5rem;
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: @white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        path {
+            fill: @gray-dark;
+        }
     }
     .entries-wrapper {
         padding: 0 2rem;
@@ -94,23 +121,6 @@
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-    }
-    #overlay_button {
-        position: fixed;
-        bottom: 1rem;
-        left: 50%;
-        transform: translate3d(-50%, 0, 0);
-        padding: 0.5rem;
-        border-radius: 50%;
-        width: 2.5rem;
-        height: 2.5rem;
-        background-color: @white;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        transition: box-shadow 0.4s;
-        cursor: pointer;
-        path {
-            fill: @gray-dark;
-        }
     }
     .entries {
         margin: calc(2rem + 2.5rem) 0 4.5rem;
@@ -261,19 +271,25 @@
                 font-size: 3rem;
             }
         }
-        .overlay-header {
-            top: 2rem;
+        #intro_overlay {
+            &.open {
+                #overlay_header {
+                    transform: translateY(2rem);
+                }
+                #overlay_control {
+                    transform: translateY(-2rem);
+                }
+            }
         }
         .overlay-title {
             font-size: 1.5rem;
         }
-        .entries {
-            margin: calc(3rem + 3rem) 0 6rem;
-        }
         #overlay_button {
-            bottom: 2rem;
             width: 3rem;
             height: 3rem;
+        }
+        .entries {
+            margin: calc(3rem + 3rem) 0 6rem;
         }
         .entries.circles {
             .entry {

@@ -62,8 +62,11 @@
                                             :alt="item.name">
                                     </div>
                                 </template>
-                                <template v-else>
-                                    <h3>{{ item.title }}</h3>
+                                <template v-else-if="category.type === 'misc'">
+                                    <header>
+                                        <span>{{item.icon}}</span>
+                                        <h3>{{ item.title }}</h3>
+                                    </header>
                                     <p>{{ item.text }}</p>
                                 </template>
                             </div>
@@ -160,16 +163,18 @@ export default {
                     ]
                 }, {
                     id: 4,
-                    icon: 'trophy',
-                    title: 'More',
-                    type: '',
+                    icon: 'star',
+                    title: 'Misc',
+                    type: 'misc',
                     content: [
                         {
+                            icon: '🎥',
                             title: 'Films',
-                            text: '🌌Star Wars, watched all the titles'
+                            text: 'Star Wars is my favorite movie series. I watched all the titles, including the latest spin-offs.'
                         }, {
+                            icon: '⛳',
                             title: 'Sports',
-                            text: '🏊Swimming, 🏃running, and 🚴cycling'
+                            text: 'I enjoy swimming the most, but I like running and cycling too.'
                         }
                     ]
                 }

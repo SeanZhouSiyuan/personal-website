@@ -219,6 +219,26 @@
             }
         }
     }
+    .entries.misc {
+        .entry {
+            header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 1rem;
+            }
+            h3 {
+                margin: 0 1.5rem 0 0.5rem;
+            }
+            p {
+                line-height: 2;
+                text-align: center;
+            }
+            + .entry {
+                margin-top: 3rem;
+            }
+        }
+    }
     .entries-wrapper:not(.active) {
         display: none;
     }

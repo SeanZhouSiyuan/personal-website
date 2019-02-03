@@ -181,7 +181,7 @@ export default {
                         }, {
                             icon: '🏠',
                             title: 'Places',
-                            text: 'I lived in Shenzhen for four years before moving to Hong Kong for graduate study. Both are great cities.'
+                            text: 'I lived in Shenzhen for four years, before moving to Hong Kong for graduate study. Both are great cities.'
                         }
                     ]
                 }

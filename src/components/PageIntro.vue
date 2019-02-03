@@ -66,6 +66,9 @@
                                     <header>
                                         <span>{{item.icon}}</span>
                                         <h3>{{ item.title }}</h3>
+                                        <span aria-hidden="true">
+                                            {{item.icon}}
+                                        </span>
                                     </header>
                                     <p>{{ item.text }}</p>
                                 </template>
@@ -105,15 +108,15 @@ export default {
                     content: [
                         {
                             entity: 'The Hong Kong University of Science and Technology',
-                            period: '2018.09-present',
+                            period: '2018.09–present',
                             desc: 'Master of Science in Information Technology, expected June 2019'
                         }, {
                             entity: 'The University of California San Diego',
-                            period: '2017.08-2017.12',
+                            period: '2017.08–2017.12',
                             desc: 'Visiting student enrolled in Language and American Culture program'
                         }, {
                             entity: 'Shenzhen University',
-                            period: '2014.10-2018.06',
+                            period: '2014.10–2018.06',
                             desc: 'Bachelor of Engineering in Telecommunication, with a GPA of 3.8/4.0'
                         }
                     ]
@@ -151,12 +154,12 @@ export default {
                     content: [
                         {
                             entity: 'Magnum Research Limited',
-                            period: '2018.10 - present',
+                            period: '2018.10–present',
                             title: 'Front-end Intern',
                             desc: 'Assists in building an performance visualization website using Vue.js and charting libraries'
                         }, {
                             entity: 'Haituncun Information Technology Limited',
-                            period: '2017.05 - 2017.08',
+                            period: '2017.05–2017.08',
                             title: 'Front-end Intern',
                             desc: 'Studied asynchronous JavaScript; Assisted in implementing a single-page site with Vue.js'
                         }
@@ -175,6 +178,10 @@ export default {
                             icon: '⛳',
                             title: 'Sports',
                             text: 'I enjoy swimming the most, but I like running and cycling too.'
+                        }, {
+                            icon: '🏠',
+                            title: 'Places',
+                            text: 'I lived in Shenzhen for four years before moving to Hong Kong for graduate study. Both are great cities.'
                         }
                     ]
                 }

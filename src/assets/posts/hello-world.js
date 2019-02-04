@@ -1,0 +1,1 @@
+module.exports = {"path":"/posts/hello-world","title":"Hello World","date":"2019/02/04","modifiedDate":"2019-02-04T14:58:09.588Z","tags":["Hello world"],"body":"# Hello World\r\n\r\nThis is my first post."};

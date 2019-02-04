@@ -1,0 +1,1 @@
+module.exports = {"postList":[{"path":"/posts/building-the-portfolio","title":"Building the Portfolio","date":"2019/02/04","modifiedDate":"2019-02-04T14:58:06.052Z","tags":["front-end","design"]},{"path":"/posts/hello-world","title":"Hello World","date":"2019/02/04","modifiedDate":"2019-02-04T14:58:09.588Z","tags":["Hello world"]}]};

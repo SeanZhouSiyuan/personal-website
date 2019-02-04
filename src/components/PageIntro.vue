@@ -128,22 +128,22 @@ export default {
                     content: [
                         {
                             name: 'HTML',
-                            logo: require('./../assets/html_logo.svg')
+                            logo: require('./../assets/imgs/html_logo.svg')
                         }, {
                             name: 'CSS',
-                            logo: require('./../assets/css_logo.svg')
+                            logo: require('./../assets/imgs/css_logo.svg')
                         }, {
                             name: 'JavaScript',
-                            logo: require('./../assets/js_logo.svg')
+                            logo: require('./../assets/imgs/js_logo.svg')
                         }, {
                             name: 'Vue',
-                            logo: require('./../assets/vue_logo.svg')
+                            logo: require('./../assets/imgs/vue_logo.svg')
                         }, {
                             name: 'Node',
-                            logo: require('./../assets/node_logo.svg')
+                            logo: require('./../assets/imgs/node_logo.svg')
                         }, {
                             name: 'MongoDB',
-                            logo: require('./../assets/mongo_logo.svg')
+                            logo: require('./../assets/imgs/mongo_logo.svg')
                         }
                     ]
                 }, {

@@ -7,12 +7,14 @@
             </header>
             <div id="posts_list">
                 <div
-                    v-for="post in posts"
+                    v-for="post in list"
                     :key="post.id"
                     class="post"
                 >
-                    <h3>{{ post.title }}</h3>
-                    <p>{{ post.date }}</p>
+                    <router-link :to="post.path">
+                        <h3>{{ post.title }}</h3>
+                        <p>{{ post.date }}</p>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -20,13 +22,19 @@
 </template>
 
 <script>
-import { posts } from './../posts.js';
+import { dateFormatter } from './../plugins/dateFormatter.js';
+import { postList } from './../assets/postList.js';
 export default {
     name: 'PagePosts',
     data() {
         return {
-            posts: posts
+            list: postList
         }
+    },
+    beforeMount() {
+        this.list.forEach(post => {
+            post.date = dateFormatter(post.date);
+        });
     }
 }
 </script>

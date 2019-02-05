@@ -3,7 +3,10 @@
         <div class="posts-wrapper wrapper">
             <header id="posts_header">
                 <h2>My Posts</h2>
-                <p>I write articles about web design and development. See latest posts below, or head to the <a href="#">blog</a> to view more.</p>
+                <p>I write articles about web design and development. See latest posts below, or head to my blog to view more.</p>
+                <p id="blog_link_wrapper">
+                    <router-link to="/posts">Go to the blog →</router-link>
+                </p>
             </header>
             <div id="posts_list">
                 <div

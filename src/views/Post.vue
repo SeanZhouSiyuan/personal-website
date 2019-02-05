@@ -1,6 +1,9 @@
 <template>
     <div>
         <div id="post_wrapper" class="wrapper">
+            <div id="post_nav">
+                <router-link to="/posts">← Back</router-link>
+            </div>
             <div v-html="compiledMarkdown"></div>
         </div>
     </div>

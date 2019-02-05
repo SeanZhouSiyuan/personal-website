@@ -1,31 +1,29 @@
-#page_posts {
-    .posts-wrapper {
-        overflow: auto;
+#blog {
+    #blog_wrapper {
+        padding-top: 1rem;
     }
-    #posts_header {
-        margin-top: 1rem;
-        margin-bottom: 2rem;
+    header {
+        margin-bottom: 2.5rem;
         text-align: center;
-        > h2 {
-            margin-bottom: 2rem;
-            font-size: 2rem;
+        h1 {
+            margin-bottom: calc(1em - 1rem);
+            font-size: 2.5rem;
+            font-weight: 600;
         }
-        > p {
+        p {
             margin-left: auto;
             margin-right: auto;
             max-width: 640px;
             line-height: 2;
         }
-        #blog_link_wrapper {
+        #portfolio_link_wrapper {
             a {
-                color: @blue;
-            }
-            span {
                 color: @blue;
             }
         }
     }
-    #posts_list {
+    
+    #posts {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -49,21 +47,22 @@
             font-weight: 600;
         }
         &:hover {
-            h3 {
+            .title {
                 text-decoration: underline;
             }
         }
     }
     @media screen and (min-width: 768px) {
-        #posts_header {
-            margin-top: 2rem;
+        #blog_wrapper {
+            padding-top: 2rem;
+        }
+        header {
             margin-bottom: 3rem;
-            > h2 {
+            h1 {
                 font-size: 3rem;
-                letter-spacing: 1px;
-                word-spacing: 2px;
             }
         }
+        
         .post {
             margin-bottom: 2rem;
             width: calc(50% - 1rem);

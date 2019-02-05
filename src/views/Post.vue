@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div v-html="compiledMarkdown"></div>
+        <div id="post_wrapper" class="wrapper">
+            <div v-html="compiledMarkdown"></div>
+        </div>
     </div>
 </template>
 

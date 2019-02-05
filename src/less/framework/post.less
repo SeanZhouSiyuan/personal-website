@@ -1,0 +1,74 @@
+#post_wrapper {
+    padding-top: 1rem;
+    max-width: 768px;
+    h1 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-align: center;
+        line-height: 1.75;
+    }
+    h2 {
+        margin-top: calc(1em + 1rem);
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+    h3, h4, h5, h6 {
+        margin-top: calc(1em + 0.5rem);
+        font-weight: 600;
+    }
+    h5, h6 {
+        font-weight: 700;
+    }
+    p {
+        line-height: 1.75;
+        
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        
+        word-break: break-all;
+        /* in WebKit, use this non-standard one: */
+        word-break: break-word;
+
+        hyphens: auto;
+    }
+    table {
+        border-collapse: collapse;
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid @gray;
+        }
+    }
+    ul {
+        padding-left: 1.25rem;
+        li {
+            margin-bottom: 1rem;
+            line-height: 1.75;
+        }
+    }
+    code {
+        background-color: @gray-light;
+    }
+    pre {
+        overflow-x: auto;
+        code {
+            background-color: @white;
+            line-height: 1.75;
+        }
+    }
+    @media screen and (min-width: 768px) {
+        padding-top: 2rem;
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+    @media screen and (min-width: 1024px) {
+        h1 {
+            font-size: 3rem;
+        }
+    }
+}

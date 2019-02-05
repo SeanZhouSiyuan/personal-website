@@ -1,1 +1,0 @@
-module.exports = {"path":"/posts/building-the-portfolio","title":"Building the Portfolio","date":"2019/02/04","modifiedDate":"2019-02-04T14:58:06.052Z","tags":["front-end","design"],"body":"# Building the Portfolio\r\n\r\nThis post documents the creation of my portfolio site."};

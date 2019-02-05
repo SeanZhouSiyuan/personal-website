@@ -19,7 +19,7 @@ export default {
     created() {
         let id = this.$route.params.id;
         this.post = require(`./../assets/posts/${id}.js`);
-        document.title = this.post.title;
+        document.title = `${this.post.title} - Sean's Blog`;
         this.compiledMarkdown = marked(this.post.body, {sanitize: true});
     }
 }

@@ -23,15 +23,27 @@
         justify-content: space-between;
     }
     .post {
-        padding: 1.5rem 1.5rem 0.5rem;
+        padding: 1.5rem;
         border: 1px solid @gray;
         border-radius: 4px;
         margin-bottom: 1rem;
         width: 100%;
         cursor: pointer;
-        h3 {
+        a {
+            text-decoration: none;
+        }
+        .date {
+            color: @gray-dark;
+        }
+        .title {
+            margin-bottom: 0;
             font-size: 1.25rem;
             font-weight: 600;
+        }
+        &:hover {
+            h3 {
+                text-decoration: underline;
+            }
         }
     }
     @media screen and (min-width: 768px) {

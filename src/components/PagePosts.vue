@@ -12,8 +12,8 @@
                     class="post"
                 >
                     <router-link :to="post.path">
-                        <h3>{{ post.title }}</h3>
-                        <p>{{ post.date }}</p>
+                        <p class="date">{{ post.date }}</p>
+                        <h3 class="title">{{ post.title }}</h3>
                     </router-link>
                 </div>
             </div>

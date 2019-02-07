@@ -1,11 +1,18 @@
 <template>
     <div id="page_intro" class="page">
         <div id="intro_wrapper" class="wrapper">
-            <header id="intro_header" class="intro-column">
-                <h2>About me</h2>
-                <p>Hi there. My name is Sean Zhou. I am a web developer and graduate student at HKUST. To learn more about me, select a category.</p>
+            <header id="intro_header">
+                <h2 class="page-title">Hi there. My name is Sean Zhou.</h2>
+                <!-- <div class="info-box">
+                    <div v-for="(item, index) in info" :key="index" class="item">
+                        <div class="title">{{ item.title }}</div>
+                        <div class="desc">{{ item.desc }}</div>
+                    </div>
+                </div> -->
+                <p class="bio">I am a front-end web developer and graduate student at HKUST. To learn more about me, select a category, or get my resume in full.</p>
+                <a href="#" class="link">Download the resume</a>
             </header>
-            <div id="intro_categories" class="intro-column">
+            <div id="intro_categories">
                 <div
                     v-for="item in categories"
                     :key="item.id"
@@ -99,6 +106,18 @@ export default {
                 title: '',
                 open: false
             },
+            // info: [
+            //     {
+            //         title: 'Oct 23, 1996',
+            //         desc: 'Date of Birth'
+            //     }, {
+            //         title: 'Chinese',
+            //         desc: 'Nationality'
+            //     }, {
+            //         title: 'Hong Kong',
+            //         desc: 'Residence'
+            //     }
+            // ],
             categories: [
                 {
                     id: 1,

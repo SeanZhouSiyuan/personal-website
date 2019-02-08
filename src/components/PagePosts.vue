@@ -2,11 +2,9 @@
     <div id="page_posts" class="page">
         <div class="posts-wrapper wrapper">
             <header id="posts_header">
-                <h2>My Posts</h2>
-                <p>I write articles about web design and development. See latest posts below, or head to my blog to view more.</p>
-                <p id="blog_link_wrapper">
-                    <router-link to="/posts">Go to the blog →</router-link>
-                </p>
+                <h2 class="page-title">I post things about the Web</h2>
+                <p>Specifically, I write about web de&shy;sign and devel&shy;op&shy;ment. See lat&shy;est posts below, or view more in my blog.</p>
+                <router-link to="/posts" class="link">Go to the blog</router-link>
             </header>
             <div id="posts_list">
                 <div

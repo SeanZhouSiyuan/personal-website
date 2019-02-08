@@ -2,15 +2,15 @@
     <div id="page_intro" class="page">
         <div id="intro_wrapper" class="wrapper">
             <header id="intro_header">
-                <h2 class="page-title">Hi there. My name is Sean Zhou.</h2>
+                <h2 class="page-title">I'm a student and web developer</h2>
                 <!-- <div class="info-box">
                     <div v-for="(item, index) in info" :key="index" class="item">
                         <div class="title">{{ item.title }}</div>
                         <div class="desc">{{ item.desc }}</div>
                     </div>
                 </div> -->
-                <p class="bio">I am a front-end web developer and graduate student at HKUST. To learn more about me, select a category, or get my resume in full.</p>
-                <a href="#" class="link">Download the resume</a>
+                <p class="bio">Hi there. My name is Sean Zhou. I am a web devel&shy;oper and grad&shy;uate stu&shy;dent at HKUST. To learn more about me, se&shy;lect a category.</p>
+                <!-- <a href="#" class="link">Download the resume</a> -->
             </header>
             <div id="intro_categories">
                 <div

@@ -7,6 +7,17 @@
         margin-bottom: 2.5rem;
         text-align: center;
         .page-title {
+            margin-bottom: 1.5rem;
+            span {
+                display: inline-block;
+                font-weight: 600;
+                color: rgba(20, 20, 20, 0.35);
+                &.text {
+                    margin: 0 0.5em;
+                }
+            }
+        }
+        .page-heading {
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 1.5rem;
@@ -31,7 +42,7 @@
             }
         }
         @media screen and (min-width: 450px) {
-            .page-title {
+            .page-heading {
                 max-width: 100%;
             }
         }
@@ -39,6 +50,12 @@
             margin-top: 2rem;
             margin-bottom: 3rem;
             .page-title {
+                margin-bottom: 2rem;
+                span {
+                    font-size: calc(1rem + 2px);
+                }
+            }
+            .page-heading {
                 margin-bottom: 2rem;
                 font-size: 2.5rem;
             }
@@ -49,7 +66,7 @@
         }
         @media screen and (min-width: 1024px) {
             margin-bottom: 4rem;
-            .page-title {
+            .page-heading {
                 font-size: 3rem;
             }
         }

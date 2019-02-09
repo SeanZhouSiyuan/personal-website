@@ -2,7 +2,12 @@
     <div id="page_intro" class="page">
         <div id="intro_wrapper" class="wrapper">
             <header id="intro_header">
-                <h2 class="page-title">I'm a student and web developer</h2>
+                <div class="page-title">
+                    <span class="dash">–</span>
+                    <span class="text">About Me</span>
+                    <span class="dash">–</span>
+                </div>
+                <h2 class="page-heading">I'm a student and web developer</h2>
                 <!-- <div class="info-box">
                     <div v-for="(item, index) in info" :key="index" class="item">
                         <div class="title">{{ item.title }}</div>

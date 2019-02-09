@@ -20,7 +20,7 @@
                     class="category"
                 >
                     <div class="category-icon">
-                        <i :class="['fas', `fa-${item.icon}`]"></i>
+                        <img :src="item.icon">
                     </div>
                     <h3 class="category-text">{{ item.title }}</h3>
                 </div>
@@ -121,7 +121,7 @@ export default {
             categories: [
                 {
                     id: 1,
-                    icon: 'book',
+                    icon: require('./../assets/icons8-university-96.png'),
                     title: 'Education',
                     type: 'timeline',
                     content: [
@@ -141,7 +141,7 @@ export default {
                     ]
                 }, {
                     id: 2,
-                    icon: 'code',
+                    icon: require('./../assets/icons8-source-code-96.png'),
                     title: 'Skills',
                     type: 'circles',
                     content: [
@@ -167,7 +167,7 @@ export default {
                     ]
                 }, {
                     id: 3,
-                    icon: 'cogs',
+                    icon: require('./../assets/icons8-outline-96.png'),
                     title: 'Experiences',
                     type: 'timeline',
                     content: [
@@ -185,7 +185,7 @@ export default {
                     ]
                 }, {
                     id: 4,
-                    icon: 'star',
+                    icon: require('./../assets/icons8-christmas-star-96.png'),
                     title: 'Misc',
                     type: 'misc',
                     content: [

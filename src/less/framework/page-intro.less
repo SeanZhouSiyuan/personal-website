@@ -53,7 +53,7 @@
         border-radius: 0.25rem;
         box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
         .category {
-            padding: 1.5rem;
+            padding: 1.25rem;
             width: 100%;
             user-select: none;
             cursor: pointer;
@@ -65,11 +65,17 @@
             float: left;
             margin-bottom: 0;
             font-size: 1.25rem;
-            line-height: 1;
+            line-height: 1.2;
+            font-weight: 600;
         }
         .category-icon {
             float: right;
-            font-size: 1.25rem;
+            width: 24px;
+            height: 24px;
+            margin-bottom: 0;
+            img {
+                width: 24px;
+            }
         }
         @media screen and (min-width: 768px) {
             box-shadow: none;
@@ -109,21 +115,26 @@
                 line-height: 1.5;
                 &::after {
                     position: absolute;
-                    bottom: -5px;
+                    bottom: -2px;
                     left: 50%;
                     transform: translateX(-50%);
                     content: '';
-                    width: 1rem;
-                    height: 3px;
+                    width: 1.25rem;
+                    height: 2px;
                     background-color: @gray;
-                    transition:
-                        width 0.4s,
-                        background-color 0.4s;
+                    transition: background-color 0.4s;
                 }
             }
             .category-icon {
                 float: none;
-                margin-bottom: 1rem;
+                width: 48px;
+                height: 48px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 0.75rem;
+                img {
+                    width: 48px;
+                }
             }
         }
         @media screen and (min-width: 1024px) {

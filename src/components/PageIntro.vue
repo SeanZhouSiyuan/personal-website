@@ -1,5 +1,5 @@
 <template>
-    <div id="page_intro" class="page">
+    <div id="about" class="page">
         <div id="intro_wrapper" class="wrapper">
             <header id="intro_header">
                 <div class="page-title">

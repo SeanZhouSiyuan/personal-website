@@ -1,5 +1,5 @@
 <template>
-    <div id="page_posts" class="page">
+    <div id="posts" class="page">
         <div class="posts-wrapper wrapper">
             <header id="posts_header">
                 <div class="page-title">

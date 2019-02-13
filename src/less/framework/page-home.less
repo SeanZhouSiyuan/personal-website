@@ -1,28 +1,37 @@
-#page_home {
+.home-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    nav {
-        text-align: center;
-        .nav-item {
-            margin-bottom: 0.75rem;
-            letter-spacing: 1px;
-            word-spacing: 1px;
-        }
-    }
+    min-height: 100vh;
+    // .avatar {
+    //     margin-bottom: 1rem;
+    //     width: 10rem;
+    //     height: 10rem;
+    //     border: 2px solid @white;
+    //     border-radius: 50%;
+    //     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    //     background-image: url(./../../assets/avatar.jpg);
+    //     background-repeat: no-repeat;
+    //     background-position: center center;
+    //     background-size: 20rem;
+    // }
     .title {
         margin-bottom: 1rem;
-        // title has double letter and word spacing
-        // since it has double font size
-        letter-spacing: 2px;
-        word-spacing: 2px;
+        font-weight: 600;
     }
     .title-secondary {
-        margin-bottom: 2rem;
+        line-height: 1.6;
         font-size: 1rem;
-        font-weight: normal;
-        letter-spacing: 1px;
-        word-spacing: 1px;
+        text-align: center;
+        color: rgba(20, 20, 20, 0.75);
+    }
+    @media screen and (min-width: 768px) {
+        .title {
+            font-size: 3.5rem;
+        }
+        .title-secondary {
+            font-size: 1.25rem;
+        }
     }
 }

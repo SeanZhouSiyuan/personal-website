@@ -1,0 +1,44 @@
+#main_page{
+    position: relative;
+    overflow-x: hidden;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        width: 25rem;
+        height: 25rem;
+        border-radius: 50%;
+        background-color: #f4f8fe;
+        z-index: -1;
+        @media screen and (min-width: 768px) {
+            width: 30rem;
+            height: 30rem;
+        }
+        @media screen and (min-width: 1024px) {
+            width: 50rem;
+            height: 50rem;
+        }
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: calc(100vh);
+        right: 0;
+        transform: translate(50%, -50%);
+        width: 15rem;
+        height: 15rem;
+        border-radius: 50%;
+        background-color: #f4f8fe;
+        z-index: -1;
+        @media screen and (min-width: 768px) {
+            width: 20rem;
+            height: 20rem;
+        }
+        @media screen and (min-width: 1024px) {
+            width: 30rem;
+            height: 30rem;
+        }
+    }
+}

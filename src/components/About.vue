@@ -1,20 +1,20 @@
 <template>
-    <div id="about" class="page">
+    <section id="about" class="page">
         <div id="intro_wrapper" class="wrapper">
-            <header id="intro_header">
-                <div class="page-title">
+            <header class="section-header" id="intro_header">
+                <div class="section-title">
                     <span class="dash">–</span>
                     <span class="text">About Me</span>
                     <span class="dash">–</span>
                 </div>
-                <h2 class="page-heading">I'm a student and web developer</h2>
+                <h2 class="section-heading">I'm a student and web developer</h2>
                 <!-- <div class="info-box">
                     <div v-for="(item, index) in info" :key="index" class="item">
                         <div class="title">{{ item.title }}</div>
                         <div class="desc">{{ item.desc }}</div>
                     </div>
                 </div> -->
-                <p class="bio">Hi there. My name is Sean Zhou. I am a web devel&shy;oper and grad&shy;uate stu&shy;dent at HKUST. To learn more about me, se&shy;lect a category.</p>
+                <p class="section-intro">Hi there. My name is Sean Zhou. I am a web devel&shy;oper and grad&shy;uate stu&shy;dent at HKUST. To learn more about me, se&shy;lect a category.</p>
                 <!-- <a href="#" class="link">Download the resume</a> -->
             </header>
             <div id="intro_categories">
@@ -98,12 +98,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>
 export default {
-    name: 'PageIntro',
+    name: 'HomeAbout',
     data() {
         return {
             overlay: {

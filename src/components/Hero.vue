@@ -12,6 +12,6 @@
 
 <script>
 export default {
-    name: 'PageHome'
+    name: 'HomeHero'
 }
 </script>

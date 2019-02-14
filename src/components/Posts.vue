@@ -1,17 +1,17 @@
 <template>
-    <div id="posts" class="page">
+    <section id="posts" class="page">
         <div class="posts-wrapper wrapper">
-            <header id="posts_header">
-                <div class="page-title">
+            <header class="section-header" id="posts_header">
+                <div class="section-title">
                     <span class="dash">–</span>
                     <span class="text">My Articles</span>
                     <span class="dash">–</span>
                 </div>
-                <h2 class="page-heading">I post things about the Web</h2>
-                <p>Specifically, I write about web de&shy;sign and devel&shy;op&shy;ment. See lat&shy;est posts below, or view more in my blog.</p>
+                <h2 class="section-heading">I post things about the Web</h2>
+                <p class="section-intro">Specifically, I write about web de&shy;sign and devel&shy;op&shy;ment. See lat&shy;est posts below, or view more in my blog.</p>
                 <router-link to="/posts" class="link">Go to the blog</router-link>
             </header>
-            <div id="posts_list">
+            <div class="posts-box">
                 <div
                     v-for="post in list"
                     :key="post.id"
@@ -24,14 +24,14 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>
 import { dateFormatter } from './../plugins/dateFormatter.js';
 import { postList } from './../assets/postList.js';
 export default {
-    name: 'PagePosts',
+    name: 'HomePosts',
     data() {
         return {
             list: postList

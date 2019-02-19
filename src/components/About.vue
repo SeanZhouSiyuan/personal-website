@@ -1,7 +1,7 @@
 <template>
-    <section id="about" class="page">
-        <div id="intro_wrapper" class="wrapper">
-            <header class="section-header" id="intro_header">
+    <section id="about" class="section--primary">
+        <div class="wrapper">
+            <header class="section-header">
                 <div class="section-title">
                     <span class="dash">–</span>
                     <span class="text">About Me</span>
@@ -17,7 +17,7 @@
                 <p class="section-intro">Hi there. My name is Sean Zhou. I am a web devel&shy;oper and grad&shy;uate stu&shy;dent at HKUST. To learn more about me, se&shy;lect a category.</p>
                 <!-- <a href="#" class="link">Download the resume</a> -->
             </header>
-            <div id="intro_categories">
+            <div class="categories-box">
                 <div
                     v-for="item in categories"
                     :key="item.id"
@@ -27,14 +27,14 @@
                     <div class="category-icon">
                         <img :src="item.icon">
                     </div>
-                    <h3 class="category-text">{{ item.title }}</h3>
+                    <h3 class="category-title">{{ item.title }}</h3>
                 </div>
             </div>
-            <div id="intro_overlay" :class="{open: overlay.open}">
-                <header id="overlay_header">
+            <div class="overlay" :class="{open: overlay.open}">
+                <header class="overlay-header">
                     <h2 class="overlay-title">{{ overlay.title }}</h2>
                 </header>
-                <div id="overlay_wrapper">
+                <div class="overlay-body">
                     <div
                         v-for="category in categories"
                         :key="category.id"
@@ -88,7 +88,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="overlay_control">
+                <div class="overlay-control">
                     <svg
                         viewBox="0 0 32 32"
                         id="overlay_button"

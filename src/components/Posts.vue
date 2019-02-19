@@ -1,7 +1,7 @@
 <template>
-    <section id="posts" class="page">
-        <div class="posts-wrapper wrapper">
-            <header class="section-header" id="posts_header">
+    <section id="posts" class="section--primary">
+        <div class="wrapper">
+            <header class="posts-header section-header">
                 <div class="section-title">
                     <span class="dash">–</span>
                     <span class="text">My Articles</span>

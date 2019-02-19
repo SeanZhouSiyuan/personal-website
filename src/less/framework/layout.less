@@ -1,21 +1,37 @@
 * {
     box-sizing: border-box;
 }
-.page {
-    min-height: 100vh;
-}
 .wrapper {
     padding: 0 1rem;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1920px;
     @media screen and (min-width: 768px) {
         padding: 0 2rem;
     }
+    @media screen and (min-width: 1024px) {
+        padding: 0 4rem;
+    }
+    @media screen and (min-width: 1200px) {
+        padding: 0 6rem;
+    }
+    @media screen and (min-width: 1440px) {
+        padding: 0 8rem;
+    }
 }
 
-section {
+.section--primary {
+    padding: 1rem 0 2rem;
+    // min-height: 100vh;
+    @media screen and (min-width: 768px) {
+        padding: 2rem 0 4rem;
+    }
+    @media screen and (min-width: 1024px) {
+        padding-bottom: 6rem;
+    }
+    @media screen and (min-width: 1440px) {
+        padding-bottom: 8rem;
+    }
     .section-header {
-        margin-top: 1rem;
         margin-bottom: 2.5rem;
         text-align: center;
         .section-title {
@@ -30,10 +46,7 @@ section {
             }
         }
         .section-heading {
-            margin-left: auto;
-            margin-right: auto;
             margin-bottom: 1.5rem;
-            max-width: calc(320px - 2rem);
             font-weight: 600;
         }
         .section-intro {
@@ -53,13 +66,7 @@ section {
                 right: -1.25em;
             }
         }
-        @media screen and (min-width: 450px) {
-            .section-heading {
-                max-width: 100%;
-            }
-        }
         @media screen and (min-width: 768px) {
-            margin-top: 2rem;
             margin-bottom: 3rem;
             .section-title {
                 margin-bottom: 2rem;

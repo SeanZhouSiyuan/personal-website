@@ -12,17 +12,18 @@
                 </svg>
             </div>
         </div>
-        <div class="nav-content">
+        <div class="nav-body">
             <div class="items-box">
-                <div
+                <!-- <div
                     :class="[
                         'nav-item--expandable',
                         'nav-item',
                         menu.submenu.open ? 'open' : ''
                     ]"
-                >
+                > -->
+                <div class="nav-item">
                     <router-link to="/">Home</router-link>
-                    <div
+                    <!-- <div
                         @click="toggleSubmenu"
                         :class="[
                             'submenu-control',
@@ -46,7 +47,7 @@
                                 <a href="/#contact">Contact</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="nav-item">
                     <router-link to="/posts">Blog</router-link>
@@ -81,9 +82,9 @@ export default {
         toggleNavigation() {
             this.menu.open = !this.menu.open;
         },
-        toggleSubmenu() {
-            this.menu.submenu.open = !this.menu.submenu.open;
-        }
+        // toggleSubmenu() {
+        //     this.menu.submenu.open = !this.menu.submenu.open;
+        // }
     }
 }
 </script>

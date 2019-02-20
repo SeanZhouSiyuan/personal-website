@@ -23,7 +23,11 @@
         border-radius: 0.25rem;
         margin-bottom: 1.5rem;
         width: 100%;
-        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.4s;
+        &:hover {
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+        }
         a {
             display: block;
             padding: 1.5rem;
@@ -44,6 +48,16 @@
             margin-bottom: 2rem;
             width: calc(50% - 1rem);
             border-radius: 0.5rem;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+            &:hover {
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            }
+            a {
+                padding: 1.75rem;
+            }
+            .date {
+                margin-bottom: 1rem;
+            }
             .title {
                 font-size: 1.5rem;
                 &::after {
@@ -67,6 +81,10 @@
             &:nth-child(2n + 2) {
                 float: right;
             }
+        }
+        @media screen and (min-width: 1024px) {
+            margin-bottom: calc(2rem + 4px);
+            width: calc(50% - 1rem - 2px);
         }
     }
 }

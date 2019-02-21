@@ -58,7 +58,7 @@
                                     <svg class="indicator">
                                         <circle cx="6" cy="6" r="5" />
                                     </svg>
-                                    <p>{{ item.period }}</p>
+                                    <p class="period">{{ item.period }}</p>
                                     <h3>{{ item.entity }}</h3>
                                     <p v-if="item.title">{{ item.title }}</p>
                                     <p>{{ item.desc }}</p>

@@ -8,8 +8,12 @@
                     <header class="overlay-header">
                         <h2 class="overlay-title">Scan to add me on WeChat</h2>
                     </header>
-                    <div class="img-container">
-                        <img src="./../assets/imgs/qr_code_wechat.jpg" alt="WeChat QR code">
+                    <div class="overlay-body">
+                        <div class="overlay-content">
+                            <div class="img-container">
+                                <img src="./../assets/imgs/qr_code_wechat.jpg" alt="WeChat QR code">
+                            </div>
+                        </div>
                     </div>
                     <div class="overlay-control">
                         <svg

@@ -17,8 +17,12 @@
         .section-intro {
             font-size: 1rem;
             color: rgba(20, 20, 20, 0.75);
-            span {
+            line-height: 1.6;
+            .contact {
                 position: relative;
+                color: rgba(20, 20, 20, 0.75);
+                text-decoration: none;
+                line-height: 1.6;
                 cursor: pointer;
                 transition: color 0.4s;
                 &::before {
@@ -58,21 +62,153 @@
             }
         }
     }
-    .email-box {
-        position: relative;
-        display: inline-block;
-        padding: 1em 1.5em;
-        border-radius: 1.5em;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-        background-color: @white;
-        margin-bottom: 0;
-        text-align: center;
-        font-size: calc(1rem + 2px);
-        font-weight: 600;
-        line-height: 1;
-        cursor: default;
+    .overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(60, 60, 60, 0.98);
+        opacity: 0;
+        transition: opacity 0.4s;
+        pointer-events: none;
+        z-index: 1;
+        &.open {
+            opacity: 1;
+            pointer-events: auto;
+            .overlay-header {
+                transform: translateY(1rem);
+            }
+            .img-container {
+                transform: scale(1);
+            }
+            .overlay-control {
+                transform: translateY(-1rem);
+            }
+        }
         @media screen and (min-width: 768px) {
-            font-size: 1.5rem;
+            &.open {
+                .overlay-header {
+                    transform: translateY(2rem);
+                }
+                .overlay-control {
+                    transform: translateY(-2rem);
+                }
+            }
+        }
+        .overlay-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            transform: translateY(-4rem);
+            transition: transform 0.4s;
+            width: 100%;
+            z-index: 1;
+            .overlay-title {
+                padding: 0.5em 0.75em;
+                border-radius: 4px;
+                margin: 0 auto;
+                line-height: 1;
+                font-size: 1.25rem;
+                color: rgba(255, 255, 255, 0.9);
+                border: 1px solid rgba(255, 255, 255, 0.9);
+                background-color: rgba(70, 70, 70, 0.96);
+            }
+            @media screen and (min-width: 768px) {
+                .overlay-title {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        .img-container {
+            padding: 1rem;
+            margin: 0 1rem;
+            width: 100%;
+            max-width: calc(320px - 2rem);
+            height: auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            transform: scale(0.95);
+            transition: transform 0.4s;
+            img {
+                width: 100%;
+                height: auto;
+            }
+            @media screen and (min-width: 768px) {
+                max-width: calc(375px - 2rem);
+            }
+            @media screen and (min-width: 1024px) {
+                padding: 1.5rem;
+            }
+        }
+        .overlay-control {
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            transform: translateY(4rem);
+            transition: transform 0.4s;
+            svg {
+                padding: 0.5rem;
+                border-radius: 50%;
+                width: 2.5rem;
+                height: 2.5rem;
+                border: 1px solid rgba(255, 255, 255, 0.9);
+                background-color: rgba(70, 70, 70, 0.96);
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+                transition: background-color 0.4s;
+                cursor: pointer;
+                path {
+                    fill: rgba(255, 255, 255, 0.9);
+                    transition: fill 0.4s;
+                }
+                &:hover {
+                    // box-shadow: 0 6px 24px 2px rgba(0, 0, 0, 0.1);
+                    background-color: rgba(255, 255, 255, 0.96);
+                    path {
+                        fill: @black;
+                    }
+                }
+            }
+            @media screen and (min-width: 768px) {
+                svg {
+                    width: 3rem;
+                    height: 3rem;
+                }
+            }
+        }
+    }
+    .email-box {
+        display: inline-block;
+        .email {
+            display: inline-block;
+            padding: 1em 1.5em;
+            border-radius: 1.5em;
+            background-color: @white;
+            font-size: calc(1rem + 2px);
+            font-weight: 600;
+            line-height: 1;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.4s;
+            &:hover {
+                box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+            }
+        }
+        @media screen and (min-width: 768px) {
+            .email {
+                font-size: 1.5rem;
+                box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+                &:hover {
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                }
+            }
         }
     }
 }

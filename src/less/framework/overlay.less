@@ -50,8 +50,10 @@
             font-size: 1.25rem;
             color: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(255, 255, 255, 0.9);
-            background-color: rgba(70, 70, 70, 0.96);
+            background-color: rgba(70, 70, 70, 1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
             @media screen and (min-width: 768px) {
+                box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
                 font-size: 1.5rem;
             }
         }
@@ -76,8 +78,8 @@
             width: 2.5rem;
             height: 2.5rem;
             border: 1px solid rgba(255, 255, 255, 0.9);
-            background-color: rgba(70, 70, 70, 0.96);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            background-color: rgba(70, 70, 70, 1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
             transition: background-color 0.4s;
             cursor: pointer;
             path {
@@ -85,8 +87,7 @@
                 transition: fill 0.4s;
             }
             &:hover {
-                // box-shadow: 0 6px 24px 2px rgba(0, 0, 0, 0.1);
-                background-color: rgba(255, 255, 255, 0.96);
+                background-color: rgba(255, 255, 255, 0.9);
                 path {
                     fill: @black;
                 }
@@ -96,6 +97,7 @@
             svg {
                 width: 3rem;
                 height: 3rem;
+                box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
             }
         }
     }

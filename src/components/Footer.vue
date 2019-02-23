@@ -1,24 +1,25 @@
 <template>
     <footer>
-        <div class="footer-wrapper wrapper">
-            <nav>
+        <div class="wrapper">
+            <!-- <nav>
                 <div
                     v-for="(entry, index) in nav"
                     :key="index"
-                    class="nav-item"
+                    class="single-list"
                 >
-                    <div class="title">{{ entry.title }}</div>
+                    <h4 class="title">{{ entry.title }}</h4>
                     <ul>
                         <li
+                            @click="handleNavigation(entry.title, item.name)"
                             v-for="(item, index) in entry.items"
                             :key="index"
                         >{{ item.name }}</li>
                     </ul>
                 </div>
-                <!-- <div>
-                    <p>© 2019 Sean Zhou</p>
-                </div> -->
-            </nav>
+            </nav> -->
+            <div class="copyright">
+                <span class="text">© 2019 Sean Zhou</span>
+            </div>
         </div>
     </footer>
 </template>
@@ -26,45 +27,47 @@
 <script>
 export default {
     name: 'HomeFooter',
-    data() {
-        return {
-            nav: [
-                {
-                    title: 'About',
-                    items: [
-                        {
-                            name: 'Education',
-                            url: '#'
-                        }, {
-                            name: 'Skills',
-                            url: '#'
-                        }, {
-                            name: 'Experiences',
-                            url: '#'
-                        }, {
-                            name: 'Misc',
-                            url: '#'
-                        }
-                    ]
-                }, {
-                    title: 'Contact',
-                    items: [
-                        {
-                            name: 'Email',
-                            url: '#'
-                        }, {
-                            name: 'WeChat',
-                            url: '#'
-                        }, {
-                            name: 'Facebook',
-                            url: '#'
-                        }
-                    ]
-                }, {
-                    title: 'Blog'
-                }
-            ]
-        }
-    }
+    // data() {
+    //     return {
+    //         nav: [
+    //             {
+    //                 title: 'About',
+    //                 items: [
+    //                     {
+    //                         name: 'Education'
+    //                     }, {
+    //                         name: 'Skills'
+    //                     }, {
+    //                         name: 'Experiences'
+    //                     }, {
+    //                         name: 'Misc'
+    //                     }
+    //                 ]
+    //             }, {
+    //                 title: 'Contact',
+    //                 items: [
+    //                     {
+    //                         name: 'Email'
+    //                     }, {
+    //                         name: 'GitHub'
+    //                     }, {
+    //                         name: 'Facebook'
+    //                     }, {
+    //                         name: 'WeChat'
+    //                     }
+    //                 ]
+    //             }, {
+    //                 title: 'Articles',
+    //                 items: [
+    //                     {
+    //                         name: 'Latest posts'
+    //                     }, {
+    //                         name: 'Tags'
+    //                     }
+    //                 ]
+    //             }
+    //         ]
+    //     }
+    // }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
     <footer>
         <div class="wrapper">
-            <!-- <nav>
+            <nav>
                 <div
                     v-for="(entry, index) in nav"
                     :key="index"
@@ -16,7 +16,7 @@
                         >{{ item.name }}</li>
                     </ul>
                 </div>
-            </nav> -->
+            </nav>
             <div class="copyright">
                 <span class="text">© 2019 Sean Zhou</span>
             </div>
@@ -27,47 +27,47 @@
 <script>
 export default {
     name: 'HomeFooter',
-    // data() {
-    //     return {
-    //         nav: [
-    //             {
-    //                 title: 'About',
-    //                 items: [
-    //                     {
-    //                         name: 'Education'
-    //                     }, {
-    //                         name: 'Skills'
-    //                     }, {
-    //                         name: 'Experiences'
-    //                     }, {
-    //                         name: 'Misc'
-    //                     }
-    //                 ]
-    //             }, {
-    //                 title: 'Contact',
-    //                 items: [
-    //                     {
-    //                         name: 'Email'
-    //                     }, {
-    //                         name: 'GitHub'
-    //                     }, {
-    //                         name: 'Facebook'
-    //                     }, {
-    //                         name: 'WeChat'
-    //                     }
-    //                 ]
-    //             }, {
-    //                 title: 'Articles',
-    //                 items: [
-    //                     {
-    //                         name: 'Latest posts'
-    //                     }, {
-    //                         name: 'Tags'
-    //                     }
-    //                 ]
-    //             }
-    //         ]
-    //     }
-    // }
+    data() {
+        return {
+            nav: [
+                {
+                    title: 'About',
+                    items: [
+                        {
+                            name: 'Education'
+                        }, {
+                            name: 'Skills'
+                        }, {
+                            name: 'Experiences'
+                        }, {
+                            name: 'Misc'
+                        }
+                    ]
+                }, {
+                    title: 'Contact',
+                    items: [
+                        {
+                            name: 'Email'
+                        }, {
+                            name: 'GitHub'
+                        }, {
+                            name: 'Facebook'
+                        }, {
+                            name: 'WeChat'
+                        }
+                    ]
+                }, {
+                    title: 'Articles',
+                    items: [
+                        {
+                            name: 'Latest posts'
+                        }, {
+                            name: 'Tags'
+                        }
+                    ]
+                }
+            ]
+        }
+    }
 }
 </script>

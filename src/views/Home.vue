@@ -25,6 +25,9 @@ export default {
     HomePosts,
     HomeContact,
     HomeFooter
+  },
+  beforeMount() {
+    document.title = 'Sean Zhou';
   }
 }
 </script>

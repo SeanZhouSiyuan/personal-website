@@ -223,7 +223,9 @@ export default {
             let overlay = this.overlay;
             if (id >= 0) {
                 overlay.ref = id;
-                overlay.title = this.categories.find(el => el.id === id).title;
+                overlay.title = 
+                    this.categories.find(el => el.id === id) ?
+                    this.categories.find(el => el.id === id).title : '';
             }
             overlay.open = !overlay.open;
         }

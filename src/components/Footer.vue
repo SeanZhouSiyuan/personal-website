@@ -23,17 +23,29 @@
                     <div class="single-list">
                         <h4 class="title">Contact</h4>
                         <ul>
-                            <li class="list-item"><a href="mailto:sean.zhou@connect.ust.hk">Email</a></li>
-                            <li class="list-item"><a href="https://github.com/SeanZhouSiyuan" target="_blank">GitHub</a></li>
-                            <li class="list-item"><a href="https://www.facebook.com/seanzhousiyuan" target="_blank">Facebook</a></li>
-                            <li class="list-item"><span @click="showCode">WeChat</span></li>
+                            <li class="list-item">
+                                <a href="mailto:sean.zhou@connect.ust.hk">Email</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="https://github.com/SeanZhouSiyuan" target="_blank">GitHub</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="https://www.facebook.com/seanzhousiyuan" target="_blank">Facebook</a>
+                            </li>
+                            <li class="list-item">
+                                <span @click="showCode">WeChat</span>
+                            </li>
                         </ul>
                     </div>
                     <div class="single-list">
                         <h4 class="title">Articles</h4>
                         <ul>
-                            <li class="list-item list-item--link"><router-link to="/posts">Latest posts</router-link></li>
-                            <li class="list-item list-item--link"><router-link to="/posts">Tags</router-link></li>
+                            <li class="list-item list-item--link">
+                                <router-link to="/posts">Latest posts</router-link>
+                            </li>
+                            <li class="list-item list-item--link">
+                                <router-link to="/posts">Tags</router-link>
+                            </li>
                         </ul>
                     </div>
                 </nav>

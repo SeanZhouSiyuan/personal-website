@@ -21,7 +21,7 @@
                 <div
                     v-for="item in categories"
                     :key="item.id"
-                    @click="toggleOverlay(item.id, item.title)"
+                    @click="toggleCategory(item.id)"
                     class="category"
                 >
                     <div class="category-icon">
@@ -92,7 +92,7 @@
                     <svg
                         viewBox="0 0 32 32"
                         id="overlay_button"
-                        @click="toggleOverlay(-1)">
+                        @click="toggleCategory(-1)">
                         <path d="M 7.21875 5.78125 L 5.78125 7.21875 L 14.5625 16 L 5.78125 24.78125 L 7.21875 26.21875 L 16 17.4375 L 24.78125 26.21875 L 26.21875 24.78125 L 17.4375 16 L 26.21875 7.21875 L 24.78125 5.78125 L 16 14.5625 Z "/>
                     </svg>
                 </div>
@@ -102,6 +102,7 @@
 </template>
 
 <script>
+import { eventBus } from './../eventBus.js';
 export default {
     name: 'HomeAbout',
     data() {
@@ -212,12 +213,17 @@ export default {
             ]
         }
     },
+    beforeMount() {
+        eventBus.$on('showCategory', id => {
+            this.toggleCategory(id);
+        });
+    },
     methods: {
-        toggleOverlay(id, title) {
+        toggleCategory(id) {
             let overlay = this.overlay;
             if (id >= 0) {
                 overlay.ref = id;
-                overlay.title = title;
+                overlay.title = this.categories.find(el => el.id === id).title;
             }
             overlay.open = !overlay.open;
         }

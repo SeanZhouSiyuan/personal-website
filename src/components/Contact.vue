@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import { eventBus } from './../eventBus.js';
 export default {
     name: 'HomeContact',
     data() {
@@ -56,6 +57,11 @@ export default {
                 open: false
             }
         }
+    },
+    beforeMount() {
+        eventBus.$on('showCode', () => {
+            this.toggleOverlay();
+        })
     },
     methods: {
         toggleOverlay() {

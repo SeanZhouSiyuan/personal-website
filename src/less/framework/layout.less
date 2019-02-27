@@ -1,6 +1,17 @@
 * {
     box-sizing: border-box;
 }
+.content-animatable > *, .self-animatable {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0.75rem);
+    transition: opacity 0.8s, transform 0.8s;
+    &.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+}
 .wrapper {
     padding: 0 1rem;
     margin: 0 auto;

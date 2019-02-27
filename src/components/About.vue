@@ -1,7 +1,7 @@
 <template>
     <section id="about" class="section--primary">
         <div class="wrapper">
-            <header class="section-header">
+            <header class="section-header content-animatable">
                 <div class="section-title">
                     <span class="dash">–</span>
                     <span class="text">About Me</span>
@@ -17,7 +17,7 @@
                 <p class="section-intro">Hi there. My name is Sean Zhou. I am a web devel&shy;oper and grad&shy;uate stu&shy;dent at HKUST. To learn more about me, se&shy;lect a category.</p>
                 <!-- <a href="#" class="link">Download the resume</a> -->
             </header>
-            <div class="categories-box">
+            <div class="categories-box self-animatable">
                 <div
                     v-for="item in categories"
                     :key="item.id"

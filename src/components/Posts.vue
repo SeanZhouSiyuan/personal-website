@@ -1,7 +1,7 @@
 <template>
     <section id="posts" class="section--primary">
         <div class="wrapper">
-            <header class="posts-header section-header">
+            <header class="posts-header section-header content-animatable">
                 <div class="section-title">
                     <span class="dash">–</span>
                     <span class="text">My Articles</span>
@@ -9,9 +9,9 @@
                 </div>
                 <h2 class="section-heading">I post things about the Web</h2>
                 <p class="section-intro">Specifically, I write about web de&shy;sign and devel&shy;op&shy;ment. See lat&shy;est posts below, or view more in my blog.</p>
-                <router-link to="/posts" class="link">Go to the blog</router-link>
+                <div><router-link to="/posts" class="link">Go to the blog</router-link></div>
             </header>
-            <div class="posts-box">
+            <div class="posts-box self-animatable">
                 <div
                     v-for="post in list"
                     :key="post.id"

@@ -1,53 +1,23 @@
 <template>
     <nav :class="['header-nav', menu.open ? 'open' : '']">
-        <div class="nav-bar">
-            <div class="text">Menu</div>
-            <div
-                @click="toggleNavigation"
-                :class="['button', menu.open ? 'active' : '']"
-            >
-                <svg viewBox="0 0 24 24">
-                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                    <path d="M0 0h24v24H0z" fill="none"/>
-                </svg>
+        <div class="nav-bar-wrapper">
+            <div class="nav-bar">
+                <div class="text">Menu</div>
+                <div
+                    @click="toggleNavigation"
+                    :class="['button', menu.open ? 'active' : '']"
+                >
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg>
+                </div>
             </div>
         </div>
         <div class="nav-body">
             <div class="items-box">
-                <!-- <div
-                    :class="[
-                        'nav-item--expandable',
-                        'nav-item',
-                        menu.submenu.open ? 'open' : ''
-                    ]"
-                > -->
                 <div class="nav-item">
                     <router-link to="/">Home</router-link>
-                    <!-- <div
-                        @click="toggleSubmenu"
-                        :class="[
-                            'submenu-control',
-                            this.menu.submenu.open ? 'active' : ''
-                        ]"
-                    >
-                        <svg viewBox="0 0 24 24">
-                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-                            <path fill="none" d="M0 0h24v24H0V0z"/>
-                        </svg>
-                    </div>
-                    <div class="submenu">
-                        <ul>
-                            <li>
-                                <a href="/#about">About</a>
-                            </li>
-                            <li>
-                                <a href="/#posts">Posts</a>
-                            </li>
-                            <li>
-                                <a href="/#contact">Contact</a>
-                            </li>
-                        </ul>
-                    </div> -->
                 </div>
                 <div class="nav-item">
                     <router-link to="/posts">Blog</router-link>

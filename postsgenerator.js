@@ -54,7 +54,7 @@ function savePostList(posts) {
         }
         return item;
     });
-    let data = `module.exports = ${JSON.stringify({ postList: list })};`;
+    let data = `export default ${JSON.stringify(list)};`;
     fs.writeFileSync(filePath, data, 'utf8');
 }
 
@@ -74,7 +74,7 @@ function savePosts(posts) {
     posts.forEach(post => {
         let fileName = `${post.title.toLowerCase().replace(/\s+/g, '-')}.js`;
         let filePath = path.resolve(postsDir, fileName);
-        let data = `module.exports = ${JSON.stringify(post)};`;
+        let data = `let post = ${JSON.stringify(post)}; export { post };`;
         fs.writeFileSync(filePath, data, 'utf8');
     });
 }

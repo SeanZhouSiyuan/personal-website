@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { postList } from './../assets/postList.js';
+import postList from './../assets/postList.js';
 export default {
     name: 'Posts',
     data() {

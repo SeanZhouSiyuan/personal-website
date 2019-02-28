@@ -29,7 +29,7 @@
 
 <script>
 import { dateFormatter } from './../plugins/dateFormatter.js';
-import { postList } from './../assets/postList.js';
+import postList from './../assets/postList.js';
 export default {
     name: 'HomePosts',
     data() {

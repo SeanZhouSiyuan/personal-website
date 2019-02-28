@@ -21,9 +21,11 @@ export default {
     },
     created() {
         let id = this.$route.params.id;
-        this.post = require(`./../assets/posts/${id}.js`);
-        document.title = `${this.post.title} - Sean's Blog`;
-        this.compiledMarkdown = marked(this.post.body, {sanitize: true});
+        import(`./../assets/posts/${id}.js`).then(data => {
+            this.post = data.post;
+            document.title = `${this.post.title} - Sean's Blog`;
+            this.compiledMarkdown = marked(this.post.body, {sanitize: true});
+        });
     }
 }
 </script>

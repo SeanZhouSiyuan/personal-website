@@ -49,7 +49,7 @@ export default {
           items.forEach((item, index) => {
             setTimeout(() => {
               item.classList.add('visible');
-            }, (index + 1) * 300);
+            }, index * 300);
           });
         }
       });
@@ -58,7 +58,7 @@ export default {
         if (isInViewport === true) {
           setTimeout(() => {
             item.classList.add('visible');
-          }, 300);
+          }, 0);
         }
       });
     });
@@ -71,9 +71,9 @@ export default {
       const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
       const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
 
-      // const verInView = ((rect.top + 16) <= windowHeight) && ((rect.top - 16 + rect.height) >= 0);
+      // const verInView = (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
       // const horInView = (rect.left <= windowWidth) && ((rect.left + rect.width) >= 0);
-      const verInView = (rect.top + 16) <= windowHeight;
+      const verInView = (rect.top + 32) <= windowHeight;
       const horInView = rect.left <= windowWidth;
 
       return (verInView && horInView);

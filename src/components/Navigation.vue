@@ -51,10 +51,7 @@ export default {
     methods: {
         toggleNavigation() {
             this.menu.open = !this.menu.open;
-        },
-        // toggleSubmenu() {
-        //     this.menu.submenu.open = !this.menu.submenu.open;
-        // }
+        }
     }
 }
 </script>

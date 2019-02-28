@@ -23,17 +23,20 @@
             .nav-item {
                 margin: 0 0.5rem;
                 display: inline-block;
+                @media screen and (min-width: 768px) {
+                    margin: 0 1rem;
+                }
                 a {
                     display: inline-block;
                     line-height: 1;
-                    color: rgba(20, 20, 20, 0.75);
+                    color: rgba(20, 20, 20, 1);
                     text-decoration: none;
-                    &:hover {
-                        color: rgba(20, 20, 20, 1);
+                    @media (pointer: fine) {
+                        color: rgba(20, 20, 20, 0.75);
+                        &:hover {
+                            color: rgba(20, 20, 20, 1);
+                        }
                     }
-                }
-                @media screen and (min-width: 768px) {
-                    margin: 0 1rem;
                 }
             }
             .nav-item--external {
@@ -47,12 +50,17 @@
                         width: calc(16px + 4px);
                         height: 16px;
                         path {
-                            fill: rgba(20, 20, 20, 0.75);
+                            fill: rgba(20, 20, 20, 1);
                         }
                     }
-                    &:hover {
+                    @media (pointer: fine) {
                         svg > path {
-                            fill: rgba(20, 20, 20, 1);
+                            fill: rgba(20, 20, 20, 0.75);
+                        }
+                        &:hover {
+                            svg > path {
+                                fill: rgba(20, 20, 20, 1);
+                            }
                         }
                     }
                 }

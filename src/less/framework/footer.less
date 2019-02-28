@@ -40,8 +40,11 @@ footer {
                     color: rgba(20, 20, 20, 0.75);
                     text-decoration: none;
                     cursor: pointer;
-                    &:hover {
-                        color: rgba(20, 20, 20, 1);
+                    @media (pointer: fine) {
+                        color: rgba(20, 20, 20, 0.75);
+                        &:hover {
+                            color: rgba(20, 20, 20, 1);
+                        }
                     }
                 }
             }

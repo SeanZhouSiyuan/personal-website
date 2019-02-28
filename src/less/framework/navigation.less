@@ -82,25 +82,28 @@
         display: block;
         border-bottom: 1px solid @gray-light;
         text-align: center;
-        a {
-            display: inline-block;
-            margin: 1.25rem 0;
-            line-height: 1;
-            text-decoration: none;
-        }
         @media screen and (min-width: 768px) {
             display: inline-block;
             padding: 1.25rem 0;
             border-bottom: none;
             margin: 0 2rem;
             text-align: left;
-            a {
+        }
+        a {
+            display: inline-block;
+            margin: 1.25rem 0;
+            line-height: 1;
+            text-decoration: none;
+            @media screen and (min-width: 768px) {
                 display: block;
                 margin: 0;
                 font-size: calc(1rem + 2px);
                 line-height: 1;
                 color: rgba(20, 20, 20, 0.75);
                 text-decoration: none;
+            }
+            @media screen and (min-width: 768px) and (pointer: fine) {
+                color: rgba(20, 20, 20, 0.75);
                 &:hover {
                     color: rgba(20, 20, 20, 1);
                 }
@@ -117,9 +120,7 @@
                 width: 16px;
                 height: 16px;
             }
-        }
-        @media screen and (min-width: 768px) {
-            a {
+            @media screen and (min-width: 768px) {
                 position: relative;
                 svg {
                     position: absolute;
@@ -131,6 +132,11 @@
                     path {
                         fill: rgba(20, 20, 20, 0.75);
                     }
+                }
+            }
+            @media screen and (min-width: 768px) and (pointer: fine) {
+                svg > path {
+                    fill: rgba(20, 20, 20, 0.75);
                 }
                 &:hover {
                     svg > path {

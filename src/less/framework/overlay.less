@@ -86,10 +86,12 @@
                 fill: rgba(255, 255, 255, 0.9);
                 transition: fill 0.4s;
             }
-            &:hover {
-                background-color: rgba(255, 255, 255, 0.9);
-                path {
-                    fill: @black;
+            @media (pointer: fine) {
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.9);
+                    path {
+                        fill: @black;
+                    }
                 }
             }
         }

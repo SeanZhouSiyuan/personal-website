@@ -1,5 +1,10 @@
 <template>
     <div id="blog">
+        <div class="alert">
+            <div class="wrapper">
+                <p><strong>Work in progress.</strong> Con&shy;tent may change as new ver&shy;sions are being rolled out.</p>
+            </div>
+        </div>
         <header>
             <div class="wrapper">
                 <h1 class="title">Sean Zhou</h1>

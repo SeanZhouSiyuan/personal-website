@@ -1,5 +1,10 @@
 <template>
     <div>
+        <div class="alert">
+            <div class="wrapper">
+                <p><strong>Work in progress.</strong> Con&shy;tent may change as new ver&shy;sions are being rolled out.</p>
+            </div>
+        </div>
         <div id="post_wrapper" class="wrapper">
             <div id="post_nav">
                 <router-link to="/posts">← Back</router-link>

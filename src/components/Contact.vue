@@ -6,7 +6,9 @@
                 <p class="section-intro">Contact me via the fol&shy;low&shy;ing email, or find me on <a href="https://github.com/SeanZhouSiyuan" target="_blank" class="contact">GitHub</a>, <a href="https://www.facebook.com/seanzhousiyuan" target="_blank" class="contact">Facebook</a>, and <span @click="toggleOverlay" class="contact contact--wechat">WeChat</span>.</p>
                 <div :class="['overlay', this.overlay.open ? 'open' : '']">
                     <header class="overlay-header">
-                        <h2 class="overlay-title">Scan to add me on WeChat</h2>
+                        <div class="title-wrapper">
+                            <h2 class="overlay-title">Scan to add me on WeChat</h2>
+                        </div>
                     </header>
                     <div class="overlay-body">
                         <div class="overlay-content">

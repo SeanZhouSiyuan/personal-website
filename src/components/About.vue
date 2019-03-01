@@ -32,7 +32,9 @@
             </div>
             <div class="overlay" :class="{open: overlay.open}">
                 <header class="overlay-header">
-                    <h2 class="overlay-title">{{ overlay.title }}</h2>
+                    <div class="title-wrapper">
+                        <h2 class="overlay-title">{{ overlay.title }}</h2>
+                    </div>
                 </header>
                 <div class="overlay-body">
                     <div

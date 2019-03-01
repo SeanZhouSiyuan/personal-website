@@ -36,6 +36,12 @@ function getPosts() {
         };
         posts.push(post);
     });
+    // sort by creation date
+    posts.sort((a, b) => {
+        let timeA = (new Date(a.date)).getTime();
+        let timeB = (new Date(b.date)).getTime();
+        return timeB - timeA;
+    });
     return posts;
 }
 

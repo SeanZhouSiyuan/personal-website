@@ -30,6 +30,7 @@
                     </a>
                 </div>
             </div>
+            <div class="copyright">© 2019 Sean Zhou</div>
         </div>
     </nav>
 </template>

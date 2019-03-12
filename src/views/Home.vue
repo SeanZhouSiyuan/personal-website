@@ -1,11 +1,13 @@
 <template>
-  <div id="main_page">
-    <home-navigation></home-navigation>
-    <home-hero></home-hero>
-    <home-about></home-about>
-    <home-posts></home-posts>
-    <home-contact></home-contact>
-    <home-footer></home-footer>
+  <div id="page_wrapper">
+    <div class="decoration-wrapper">
+      <home-navigation></home-navigation>
+      <home-hero></home-hero>
+      <home-about></home-about>
+      <home-posts></home-posts>
+      <home-contact></home-contact>
+      <home-footer></home-footer>
+    </div>
   </div>
 </template>
 

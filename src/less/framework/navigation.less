@@ -4,13 +4,14 @@
     left: 0;
     width: 100%;
     height: calc(24px + 2rem);
-    background: @white;
+    background-color: @white;
     box-shadow: 0 1px 4px rgba(80, 80, 80, 0.1);
     overflow-y: hidden;
-    transition: height 0.4s;
+    transition: height 0.4s, background-color 0.4s;
     z-index: 1;
     &.open {
         height: 100vh;
+        background-color: rgba(60, 60, 60, 0.98);
     }
     @media screen and (min-width: 768px) {
         height: auto;
@@ -20,6 +21,7 @@
         transition: none;
         &.open {
             height: auto;
+            background: none;
         }
     }
     .nav-bar-wrapper {
@@ -32,28 +34,38 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem;
+            &.active {
+                .text {
+                    color: rgba(255, 255, 255, 0.9);
+                }
+                .button {
+                    svg > path {
+                        fill: rgba(255, 255, 255, 0.9);
+                    }
+                }
+            }
             .text {
                 font-size: calc(1rem + 2px);
                 font-weight: 600;
                 line-height: 24px;
+                transition: color 0.4s;
             }
             .button {
                 width: 24px;
                 height: 24px;
-                transition: transform 0.4s;
-                &.active {
-                    transform: rotate(135deg);
-                }
+                cursor: pointer;
                 svg {
                     width: 24px;
                     height: 24px;
+                    path {
+                        transition: fill 0.4s;
+                    }
                 }
             }
         }
     }
     .nav-body {
         height: calc(100vh - 24px - 2rem);
-        border-top: 1px solid @gray-light;
         overflow-y: auto;
         @media screen and (min-width: 768px) {
             padding-top: 2rem;
@@ -80,19 +92,27 @@
     }
     .nav-item {
         display: block;
-        border-bottom: 1px solid @gray-light;
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
         text-align: center;
+        margin: 0 1rem;
+        &:first-child {
+            margin: 0;
+        }
         @media screen and (min-width: 768px) {
             display: inline-block;
             padding: 1.25rem 0;
-            border-bottom: none;
+            border-top: none;
             margin: 0 2rem;
             text-align: left;
+            &:first-child {
+                margin: 0 2rem;
+            }
         }
         a {
             display: inline-block;
             margin: 1.25rem 0;
             line-height: 1;
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             @media screen and (min-width: 768px) {
                 display: block;
@@ -119,6 +139,9 @@
                 right: -1.25rem;
                 width: 16px;
                 height: 16px;
+                path {
+                    fill: rgba(255, 255, 255, 0.9);
+                }
             }
             @media screen and (min-width: 768px) {
                 position: relative;

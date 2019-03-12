@@ -1,15 +1,14 @@
 <template>
     <nav :class="['header-nav', menu.open ? 'open' : '']">
         <div class="nav-bar-wrapper">
-            <div class="nav-bar">
+            <div :class="['nav-bar', menu.open ? 'active' : '']">
                 <div class="text">Menu</div>
                 <div
                     @click="toggleNavigation"
-                    :class="['button', menu.open ? 'active' : '']"
+                    class="button"
                 >
                     <svg viewBox="0 0 24 24">
-                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M 2 5 L 2 7 L 22 7 L 22 5 L 2 5 z M 2 11 L 2 13 L 22 13 L 22 11 L 2 11 z M 2 17 L 2 19 L 22 19 L 22 17 L 2 17 z"/>
                     </svg>
                 </div>
             </div>

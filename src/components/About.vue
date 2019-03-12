@@ -24,8 +24,9 @@
                     @click="toggleCategory(item.id)"
                     class="category"
                 >
-                    <div class="category-icon">
-                        <img :src="item.icon">
+                    <div
+                        class="category-icon"
+                        :style="{ backgroundImage: `url(${item.icon})` }">
                     </div>
                     <h3 class="category-title">{{ item.title }}</h3>
                 </div>

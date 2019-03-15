@@ -1,4 +1,4 @@
-let ScrollToggler = function(el) {
+let ScrollToggler = function(overlay) {
     this.bodyScrollY = 0;
     this.overlayScrollY = 0;
     this.scrollable = true;
@@ -11,8 +11,8 @@ let ScrollToggler = function(el) {
         }
     })();
     this.overlay = (function() {
-        if (el) {
-            return el;
+        if (overlay) {
+            return overlay;
         } else {
             throw new Error('Invalid overlay element.');
         }
@@ -29,14 +29,14 @@ ScrollToggler.prototype.disableScroll = function() {
     // save current scroll position
     this.bodyScrollY = window.pageYOffset || document.documentElement.scrollTop;
 
+    // set body styles
+    document.body.style.overflowX = 'hidden';
+    document.body.style.overflowY = 'scroll';
+    
     // set background styles
     this.background.style.position = 'fixed';
     this.background.style.width = '100%';
     this.background.style.top = `-${this.bodyScrollY}px`;
-
-    // set body styles
-    document.body.style.overflowX = 'hidden';
-    document.body.style.overflowY = 'scroll';
 
     // scroll to top of the overlay
     window.scrollTo(0, 0);

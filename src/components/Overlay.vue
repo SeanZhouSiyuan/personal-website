@@ -138,9 +138,9 @@ export default {
                     content: [
                         {
                             entity: 'Magnum Research Limited',
-                            period: '2018.10–present',
+                            period: '2018.10–2019.03',
                             title: 'Front-end Intern',
-                            desc: 'Assists in building an performance visualization website using Vue.js and charting libraries'
+                            desc: 'Helped build and debug an data visualization website using Vue.js and charting libraries; Assisted in building the new website of the company.'
                         }, {
                             entity: 'Haituncun Information Technology Limited',
                             period: '2017.05–2017.08',

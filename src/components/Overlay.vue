@@ -184,9 +184,11 @@ export default {
     mounted() {
         let overlay = this.$refs.overlay;
         this.scrollToggler = new ScrollToggler(overlay);
-        eventBus.$on('showOverlay', id => {
-            this.showOverlay(id);
-        });
+        eventBus.$on('showOverlay', this.showOverlay);
+    },
+    destroyed() {
+        eventBus.$off('showOverlay', this.showOverlay);
+        this.scrollToggler = null;
     },
     methods: {
         showOverlay(id) {

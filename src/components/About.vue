@@ -21,7 +21,7 @@
                 <div
                     v-for="item in categories"
                     :key="item.id"
-                    @click="toggleCategory(item.id)"
+                    @click="callOverlay(item.id)"
                     class="category"
                 >
                     <div
@@ -29,75 +29,6 @@
                         :style="{ backgroundImage: `url(${item.icon})` }">
                     </div>
                     <h3 class="category-title">{{ item.title }}</h3>
-                </div>
-            </div>
-            <div class="overlay" :class="{open: overlay.open}">
-                <header class="overlay-header">
-                    <div class="title-wrapper">
-                        <h2 class="overlay-title">{{ overlay.title }}</h2>
-                    </div>
-                </header>
-                <div class="overlay-body">
-                    <div
-                        v-for="category in categories"
-                        :key="category.id"
-                        :class="[
-                            'entries-wrapper',
-                            'wrapper',
-                            category.id === overlay.ref ? 'active' : ''
-                        ]">
-                        <div
-                            :class="[
-                                'entries',
-                                category.type
-                            ]"
-                        >
-                            <div
-                                v-for="(item, index) in category.content"
-                                :key="index"
-                                class="entry"
-                            >
-                                <template v-if="category.type === 'timeline'">
-                                    <svg class="indicator">
-                                        <circle cx="6" cy="6" r="5" />
-                                    </svg>
-                                    <p class="period">{{ item.period }}</p>
-                                    <h3>{{ item.entity }}</h3>
-                                    <p v-if="item.title">{{ item.title }}</p>
-                                    <p>{{ item.desc }}</p>
-                                </template>
-                                <template v-else-if="category.type === 'circles'">
-                                    <div
-                                        :class="[
-                                            'single-skill',
-                                            item.name.toLowerCase()
-                                        ]">
-                                        <img
-                                            :src="item.logo"
-                                            :alt="item.name">
-                                    </div>
-                                </template>
-                                <template v-else-if="category.type === 'misc'">
-                                    <header>
-                                        <span>{{item.icon}}</span>
-                                        <h3>{{ item.title }}</h3>
-                                        <span aria-hidden="true">
-                                            {{item.icon}}
-                                        </span>
-                                    </header>
-                                    <p>{{ item.text }}</p>
-                                </template>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="overlay-control">
-                    <svg
-                        viewBox="0 0 32 32"
-                        id="overlay_button"
-                        @click="toggleCategory(-1)">
-                        <path d="M 7.21875 5.78125 L 5.78125 7.21875 L 14.5625 16 L 5.78125 24.78125 L 7.21875 26.21875 L 16 17.4375 L 24.78125 26.21875 L 26.21875 24.78125 L 17.4375 16 L 26.21875 7.21875 L 24.78125 5.78125 L 16 14.5625 Z "/>
-                    </svg>
                 </div>
             </div>
         </div>
@@ -110,11 +41,6 @@ export default {
     name: 'HomeAbout',
     data() {
         return {
-            overlay: {
-                ref: null,
-                title: '',
-                open: false
-            },
             // info: [
             //     {
             //         title: 'Oct 23, 1996',
@@ -216,21 +142,9 @@ export default {
             ]
         }
     },
-    beforeMount() {
-        eventBus.$on('showCategory', id => {
-            this.toggleCategory(id);
-        });
-    },
     methods: {
-        toggleCategory(id) {
-            let overlay = this.overlay;
-            if (id >= 0) {
-                overlay.ref = id;
-                overlay.title = 
-                    this.categories.find(el => el.id === id) ?
-                    this.categories.find(el => el.id === id).title : '';
-            }
-            overlay.open = !overlay.open;
+        callOverlay(id) {
+            eventBus.$emit('showOverlay', id);
         }
     }
 }

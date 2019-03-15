@@ -1,13 +1,16 @@
 <template>
-  <div id="page_wrapper">
-    <div class="decoration-wrapper">
-      <home-navigation></home-navigation>
-      <home-hero></home-hero>
-      <home-about></home-about>
-      <home-posts></home-posts>
-      <home-contact></home-contact>
-      <home-footer></home-footer>
+  <div>
+    <div id="background">
+      <div class="page-body">
+        <home-navigation></home-navigation>
+        <home-hero></home-hero>
+        <home-about></home-about>
+        <home-posts></home-posts>
+        <home-contact></home-contact>
+        <home-footer></home-footer>
+      </div>
     </div>
+    <home-overlay></home-overlay>
   </div>
 </template>
 
@@ -18,6 +21,7 @@ import HomeAbout from '../components/About.vue';
 import HomePosts from '../components/Posts.vue';
 import HomeContact from '../components/Contact.vue';
 import HomeFooter from '../components/Footer.vue';
+import HomeOverlay from '../components/Overlay.vue';
 export default {
   name: 'Home',
   components: {
@@ -26,7 +30,8 @@ export default {
     HomeAbout,
     HomePosts,
     HomeContact,
-    HomeFooter
+    HomeFooter,
+    HomeOverlay
   },
   beforeMount() {
     document.title = 'Sean Zhou';

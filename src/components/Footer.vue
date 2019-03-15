@@ -7,16 +7,16 @@
                         <h4 class="title">About</h4>
                         <ul>
                             <li class="list-item">
-                                <span @click="showCategory(1)">Education</span>
+                                <span @click="callOverlay(1)">Education</span>
                             </li>
                             <li class="list-item">
-                                <span @click="showCategory(2)">Skills</span>
+                                <span @click="callOverlay(2)">Skills</span>
                             </li>
                             <li class="list-item">
-                                <span @click="showCategory(3)">Experiences</span>
+                                <span @click="callOverlay(3)">Experiences</span>
                             </li>
                             <li class="list-item">
-                                <span @click="showCategory(4)">Misc</span>
+                                <span @click="callOverlay(4)">Misc</span>
                             </li>
                         </ul>
                     </div>
@@ -33,7 +33,7 @@
                                 <a href="https://www.facebook.com/seanzhousiyuan" target="_blank">Facebook</a>
                             </li>
                             <li class="list-item">
-                                <span @click="showCode">WeChat</span>
+                                <span @click="callOverlay(5)">WeChat</span>
                             </li>
                         </ul>
                     </div>
@@ -62,11 +62,8 @@ import { eventBus } from './../eventBus.js';
 export default {
     name: 'HomeFooter',
     methods: {
-        showCategory(id) {
-            eventBus.$emit('showCategory', id);
-        },
-        showCode() {
-            eventBus.$emit('showCode');
+        callOverlay(id) {
+            eventBus.$emit('showOverlay', id);
         }
     }
 }

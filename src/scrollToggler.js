@@ -3,19 +3,22 @@ let ScrollToggler = function(overlay) {
     this.overlayScrollY = 0;
     this.scrollable = true;
     this.background = (function() {
-        let el = document.getElementById('background');
-        if (el) {
-            return el;
-        } else {
+        let background = document.getElementById('background');
+        if (!background) {
             throw new Error('Couldn\'t find background element.');
         }
+        return background;
     })();
     this.overlay = (function() {
-        if (overlay) {
-            return overlay;
-        } else {
+        if (!overlay) {
             throw new Error('Invalid overlay element.');
         }
+        overlay.style.position = 'absolute';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100%';
+        overlay.style.zIndex = '10';
+        return overlay;
     })();
 }
 
@@ -24,9 +27,10 @@ ScrollToggler.prototype.disableScroll = function() {
         return;
     }
     // reset overlay position
-    this.overlay.style.top = null;
+    this.overlay.style.position = 'absolute';
+    this.overlay.style.top = '0';
 
-    // save current scroll position
+    // get window scroll position
     this.bodyScrollY = window.pageYOffset || document.documentElement.scrollTop;
 
     // set body styles
@@ -47,17 +51,18 @@ ScrollToggler.prototype.enableScroll = function() {
     if (this.scrollable === true) {
         return;
     }
-    // save overlay scroll position
+    // get overlay scroll position
     this.overlayScrollY = window.pageYOffset || document.documentElement.scrollTop;
 
-    // reset box styles
+    // reset background styles
     this.background.style.position = null;
     this.background.style.width = null;
     this.background.style.top = null;
 
     // restore scroll position
     window.scrollTo(0, this.bodyScrollY);
-    this.overlay.style.top = `${this.bodyScrollY - this.overlayScrollY}px`;
+    this.overlay.style.position = 'fixed';
+    this.overlay.style.top = `-${this.overlayScrollY}px`;
 
     // reset body styles
     document.body.style.overflowX = null;

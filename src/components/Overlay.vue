@@ -1,5 +1,5 @@
 <template>
-    <div class="overlay" ref="overlay" :class="{open: overlay.open}">
+    <div class="overlay" :class="{open: overlay.open}" :style="overlay.style">
         <header class="overlay-header">
             <div class="title-wrapper">
                 <h2 class="overlay-title">{{ overlay.title }}</h2>
@@ -84,7 +84,8 @@ export default {
             overlay: {
                 ref: null,
                 title: '',
-                open: false
+                open: false,
+                style: {}
             },
             categories: [
                 {
@@ -182,8 +183,7 @@ export default {
         }
     },
     mounted() {
-        let overlay = this.$refs.overlay;
-        this.scrollToggler = new ScrollToggler(overlay);
+        this.scrollToggler = new ScrollToggler();
         eventBus.$on('showOverlay', this.showOverlay);
     },
     destroyed() {
@@ -194,6 +194,11 @@ export default {
         showOverlay(id) {
             this.scrollToggler.disableScroll();
             let overlay = this.overlay;
+
+            // reset overlay position
+            overlay.style.position = 'absolute';
+            overlay.style.top = '0';
+
             overlay.ref = id;
             overlay.title = 
                 this.categories.find(el => el.id === id) ?
@@ -201,7 +206,14 @@ export default {
             overlay.open = true;
         },
         hideOverlay() {
-            this.overlay.open = false;
+            let overlay = this.overlay;
+            // get current viewport scroll position
+            let scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+            overlay.style.position = 'fixed';
+            overlay.style.top = `-${scrollY}px`;
+
+            overlay.open = false;
             this.scrollToggler.enableScroll();
         }
     }

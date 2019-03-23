@@ -12,55 +12,20 @@
                 :class="[
                     'overlay-content',
                     category.id === overlay.ref ? 'active' : ''
-                ]">
-                <div
-                    :class="[
-                        'entries',
-                        category.type
-                    ]"
-                >
-                    <div
-                        v-for="(item, index) in category.content"
-                        :key="index"
-                        class="entry"
-                    >
-                        <template v-if="category.type === 'timeline'">
-                            <svg class="indicator">
-                                <circle cx="6" cy="6" r="5" />
-                            </svg>
-                            <p class="period">{{ item.period }}</p>
-                            <h3>{{ item.entity }}</h3>
-                            <p v-if="item.title">{{ item.title }}</p>
-                            <p>{{ item.desc }}</p>
-                        </template>
-                        <template v-else-if="category.type === 'circles'">
-                            <div
-                                :class="[
-                                    'single-skill',
-                                    item.name.toLowerCase()
-                                ]">
-                                <img
-                                    :src="item.logo"
-                                    :alt="item.name">
-                            </div>
-                        </template>
-                        <template v-else-if="category.type === 'misc'">
-                            <header>
-                                <span>{{item.icon}}</span>
-                                <h3>{{ item.title }}</h3>
-                                <span aria-hidden="true">
-                                    {{item.icon}}
-                                </span>
-                            </header>
-                            <p>{{ item.text }}</p>
-                        </template>
-                        <template v-else-if="category.type === 'image'">
-                            <div class="img-container">
-                                <img :src="item.url" alt="WeChat QR code">
-                            </div>
-                        </template>
-                    </div>
-                </div>
+                ]"
+            >
+                <template v-if="category.type === 'general_list'">
+                    <my-general-list :list="category.content"></my-general-list>
+                </template>
+                <template v-if="category.type === 'timeline'">
+                    <my-timeline :list="category.content"></my-timeline>
+                </template>
+                <template v-if="category.type === 'circular_cards'">
+                    <my-circular-cards :list="category.content"></my-circular-cards>
+                </template>
+                <template v-if="category.type === 'image'">
+                    <my-image :image="category.content"></my-image>
+                </template>
             </div>
         </div>
         <div class="overlay-control">
@@ -75,10 +40,21 @@
 </template>
 
 <script>
+import MyCircularCards from './overlay-types/CircularCards.vue';
+import MyTimeline from './overlay-types/Timeline.vue';
+import MyGeneralList from './overlay-types/GeneralList.vue';
+import MyImage from './overlay-types/Image.vue';
+
 import { eventBus } from './../eventBus.js';
 import ScrollToggler from './../scrollToggler.js';
 export default {
     name: 'HomeOverlay',
+    components: {
+        MyGeneralList,
+        MyTimeline,
+        MyCircularCards,
+        MyImage
+    },
     data() {
         return {
             overlay: {
@@ -110,7 +86,7 @@ export default {
                 }, {
                     id: 2,
                     title: 'Skills',
-                    type: 'circles',
+                    type: 'circular_cards',
                     content: [
                         {
                             name: 'HTML',
@@ -140,19 +116,19 @@ export default {
                         {
                             entity: 'Magnum Research Limited',
                             period: '2018.10–2019.03',
-                            title: 'Front-end Intern',
+                            position: 'Front-end Intern',
                             desc: 'Helped build and debug an data visualization website using Vue.js and charting libraries; Assisted in building the new website of the company.'
                         }, {
                             entity: 'Haituncun Information Technology Limited',
                             period: '2017.05–2017.08',
-                            title: 'Front-end Intern',
+                            position: 'Front-end Intern',
                             desc: 'Studied asynchronous JavaScript; Assisted in implementing a single-page site with Vue.js'
                         }
                     ]
                 }, {
                     id: 4,
                     title: 'Misc',
-                    type: 'misc',
+                    type: 'general_list',
                     content: [
                         {
                             icon: '🎥',
@@ -172,11 +148,10 @@ export default {
                     id: 5,
                     title: 'Scan to add me on WeChat',
                     type: 'image',
-                    content: [
-                        {
-                            url: require('./../assets/imgs/qr_code_wechat.jpg')
-                        }
-                    ]
+                    content: {
+                        src: require('./../assets/imgs/qr_code_wechat.jpg'),
+                        alt: 'WeChat QR code'
+                    }
                 }
             ],
             scrollToggler: null

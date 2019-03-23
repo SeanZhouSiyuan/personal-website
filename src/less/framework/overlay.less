@@ -112,11 +112,10 @@
     }
 }
 
-// styles for About overlay
 .overlay {
-    .entries {
+    .overlay-list {
         margin: calc(2.5rem + 2.5rem) 0 5.5rem;
-        .entry {
+        .list-item {
             h3 {
                 margin-bottom: 1rem;
                 line-height: 1.6;
@@ -128,7 +127,7 @@
             }
         }
     }
-    .entries.timeline {
+    .overlay-list--timeline {
         padding: 0.75rem 0 0.75rem calc(1.25rem + 5px);
         border-left: 1px solid rgb(120, 120, 120);
         margin-left: 5px;
@@ -145,10 +144,10 @@
                 fill: rgb(240, 240, 240);
             }
         }
-        .entry {
+        .list-item {
             position: relative;
             color: rgba(255, 255, 255, 0.9);
-            + .entry {
+            + .list-item {
                 margin-top: 3.75rem;
             }
             &:last-child {
@@ -165,11 +164,11 @@
             }
         }
     }
-    .entries.circles {
+    .overlay-list--circular-cards {
         display: flex;
         flex-wrap: wrap;
-        .entry {
-            .single-skill {
+        .list-item {
+            .single-card {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -222,8 +221,8 @@
             }
         }
     }
-    .entries.misc {
-        .entry {
+    .overlay-list--general {
+        .list-item {
             color: rgba(255, 255, 255, 0.9);
             header {
                 display: flex;
@@ -244,29 +243,52 @@
                 font-size: calc(1rem + 2px);
                 text-align: center;
             }
-            + .entry {
+            + .list-item {
                 margin-top: 3.75rem;
             }
         }
     }
+    .overlay-list--image {
+        .img-container {
+            padding: 1rem;
+            margin: 0 1rem;
+            // margin: calc(2.5rem + 2.5rem) 1rem 5.5rem;
+            width: 100%;
+            max-width: calc(320px - 2rem);
+            height: auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            img {
+                width: 100%;
+                height: auto;
+            }
+            @media screen and (min-width: 768px) {
+                // margin: calc(3rem + 3rem) 0 6rem;
+                max-width: calc(375px - 2rem);
+            }
+            @media screen and (min-width: 1024px) {
+                padding: 1.5rem;
+            }
+        }
+    }
     @media screen and (max-width: 768px) {
-        .entries.circles {
-            .entry {
+        .overlay-list--circular-cards {
+            .list-item {
                 padding-bottom: 2rem;
                 width: calc(100% / 2);
-                .single-skill {
+                .single-card {
                     width: 100px;
                     height: 100px;
                     line-height: 100px;
                 }
                 &:nth-child(odd) {
-                    .single-skill {
+                    .single-card {
                         margin-right: 1rem;
                         margin-left: auto;
                     }
                 }
                 &:nth-child(even) {
-                    .single-skill {
+                    .single-card {
                         margin-left: 1rem;
                         margin-right: auto;
                     }
@@ -281,14 +303,14 @@
         }
     }
     @media screen and (min-width: 768px) {
-        .entries {
+        .overlay-list{
             margin: calc(3rem + 3rem) 0 6rem;
         }
-        .entries.circles {
-            .entry {
+        .overlay-list--circular-cards {
+            .list-item {
                 padding-bottom: 3rem;
                 width: calc(100% / 3);
-                .single-skill {
+                .single-card {
                     width: 160px;
                     height: 160px;
                     &.html, &.css {
@@ -319,19 +341,19 @@
                     }
                 }
                 &:nth-child(3n + 1) {
-                    .single-skill {
+                    .single-card {
                         margin-right: 1rem;
                         margin-left: auto;
                     }
                 }
                 &:nth-child(3n + 2) {
-                    .single-skill {
+                    .single-card {
                         margin-left: auto;
                         margin-right: auto;
                     }
                 }
                 &:nth-child(3n + 3) {
-                    .single-skill {
+                    .single-card {
                         margin-left: 1rem;
                         margin-right: auto;
                     }
@@ -346,31 +368,6 @@
                     padding-bottom: 0;
                 }
             }
-        }
-    }
-}
-
-// styles for Contact overlay
-.overlay {
-    .img-container {
-        padding: 1rem;
-        margin: 0 1rem;
-        // margin: calc(2.5rem + 2.5rem) 1rem 5.5rem;
-        width: 100%;
-        max-width: calc(320px - 2rem);
-        height: auto;
-        background-color: #ffffff;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-        img {
-            width: 100%;
-            height: auto;
-        }
-        @media screen and (min-width: 768px) {
-            // margin: calc(3rem + 3rem) 0 6rem;
-            max-width: calc(375px - 2rem);
-        }
-        @media screen and (min-width: 1024px) {
-            padding: 1.5rem;
         }
     }
 }

@@ -171,8 +171,10 @@ export default {
             let overlay = this.overlay;
 
             // reset overlay position
-            overlay.style.position = 'absolute';
-            overlay.style.top = '0';
+            overlay.style = {
+                position: 'absolute',
+                top: '0'
+            };
 
             overlay.ref = id;
             overlay.title = 
@@ -185,8 +187,10 @@ export default {
             // get current viewport scroll position
             let scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
-            overlay.style.position = 'fixed';
-            overlay.style.top = `-${scrollY}px`;
+            overlay.style = {
+                position: 'fixed',
+                top: `-${scrollY}px`
+            };
 
             overlay.open = false;
             this.scrollToggler.enableScroll();

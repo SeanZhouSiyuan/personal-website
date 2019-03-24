@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const fm = require('front-matter');
 
-const markdownDir = path.resolve(__dirname, 'articles');
+const markdownDir = path.resolve(__dirname, 'posts');
 const assetsDir = path.resolve(__dirname, 'src/assets');
 
 let posts = getPosts();
@@ -29,9 +29,10 @@ function getPosts() {
         let post = {
             path: `/posts/${attributes.title.toLowerCase().replace(/\s+/g, '-').trim()}`,
             title: attributes.title,
-            date: attributes.date || stats.birthtime,
+            date: new Date(attributes.date) || stats.birthtime,
             modifiedDate: stats.mtime,
             tags: attributes.tags ? attributes.tags.split(/[,|;]\s*/) : [],
+            intro: attributes.intro ? attributes.intro : '',
             body: body
         };
         posts.push(post);

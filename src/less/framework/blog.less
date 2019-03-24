@@ -1,24 +1,21 @@
 #blog {
+    background-color: #f2f2f2;
+    min-height: 100vh;
     header {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid rgba(20, 20, 20, 0.1);
+        padding: 1rem 0;
         text-align: center;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-        @media screen and (min-width: 768px) {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
-        }
+        background-color: @white;
         .title {
-            margin-bottom: 0;
-            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
             font-weight: 600;
             @media screen and (min-width: 768px) {
-                font-size: 2.25rem;
+                font-size: 2rem;
             }
         }
         .navigation {
-            margin-top: 0.75rem;
             text-align: center;
             .nav-item {
                 margin: 0 0.5rem;
@@ -39,70 +36,94 @@
                     }
                 }
             }
-            .nav-item--external {
-                a {
-                    position: relative;
-                    svg {
-                        position: absolute;
-                        bottom: 0;
-                        right: calc(-16px - 4px);
-                        padding-left: 4px;
-                        width: calc(16px + 4px);
-                        height: 16px;
-                        path {
-                            fill: rgba(20, 20, 20, 1);
-                        }
-                    }
-                    @media (pointer: fine) {
-                        svg > path {
-                            fill: rgba(20, 20, 20, 0.75);
-                        }
-                        &:hover {
-                            svg > path {
-                                fill: rgba(20, 20, 20, 1);
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
-    .posts-box {
-        margin-top: 1rem;
+    .posts-wrapper {
+        padding: 0;
+        margin: 0 auto;
+        max-width: 1920px;
         @media screen and (min-width: 768px) {
-            margin-top: 2rem;
+            padding: 0 2rem;
+        }
+        @media screen and (min-width: 1024px) {
+            padding: 0 4rem;
+        }
+        @media screen and (min-width: 1200px) {
+            padding: 0 6rem;
+        }
+        @media screen and (min-width: 1440px) {
+            padding: 0 8rem;
         }
     }
     .post {
         margin-left: auto;
         margin-right: auto;
-        padding: 1.5rem 1rem;
         width: 100%;
         max-width: 640px;
-        @media screen and (min-width: 768px) {
-            padding: 2rem 1.5rem;
+        background-color: @white;
+        box-shadow: 0 1px 1px rgba(20, 20, 20, 0.1);
+        transition: box-shadow 0.4s;
+        &:hover {
+            box-shadow: 0 4px 16px rgba(20, 20, 20, 0.1);
         }
         + .post {
-            border-top: 1px solid @gray;
+            margin-top: 1rem;
         }
         .link {
+            display: block;
+            padding: 1.5rem 1.5rem;
             text-decoration: none;
+            cursor: pointer;
+            @media screen and (min-width: 768px) {
+                padding: 1.75rem 1.75rem;
+            }
         }
-        .date {
+        .meta {
             margin-bottom: 0.75rem;
-            font-weight: 600;
-            color: rgba(20, 20, 20, 0.5);
+            display: flex;
+            align-items: center;
+            font-size: calc(1rem - 2px);
+            .date {
+                font-weight: 600;
+                color: rgba(60, 60, 60, 0.5);
+            }
+            .divider {
+                margin: 0 1rem;
+                font-weight: 600;
+                color: rgba(60, 60, 60, 0.5);
+            }
+            .tags-box {
+                &::after {
+                    content: '';
+                    display: table;
+                    clear: both;
+                }
+                .single-tag {
+                    float: left;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    color: rgba(60, 60, 60, 0.5);
+                    + .single-tag {
+                        margin-left: 0.75rem;
+                    }
+                }
+            }
         }
         .title {
             display: inline-block;
-            margin-bottom: 0;
+            margin-bottom: 1rem;
             font-size: 1.5rem;
             font-weight: 600;
-            line-height: 1.6;
+            line-height: 1.5;
             @media screen and (min-width: 768px) {
-                font-size: 2.25rem;
-                font-weight: 400;
+                font-size: 1.75rem;
             }
+        }
+        .intro {
+            margin-bottom: 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(60, 60, 60, 0.75);
         }
     }
 }

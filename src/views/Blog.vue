@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import dateFormatter from './../dateFormatter.js';
+import dateFormatter from './../utils/dateFormatter.js';
 import postList from './../assets/postList.js';
 export default {
     name: 'Blog',

@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { dateFormatter } from './../plugins/dateFormatter.js';
+import dateFormatter from './../utils/dateFormatter.js';
 import postList from './../assets/postList.js';
 export default {
     name: 'HomePosts',

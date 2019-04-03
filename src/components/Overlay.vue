@@ -45,8 +45,8 @@ import MyTimeline from './overlay-types/Timeline.vue';
 import MyGeneralList from './overlay-types/GeneralList.vue';
 import MyImage from './overlay-types/Image.vue';
 
-import { eventBus } from './../eventBus.js';
-import ScrollToggler from './../scrollToggler.js';
+import { eventBus } from './../utils/eventBus.js';
+import ScrollToggler from './../utils/scrollToggler.js';
 export default {
     name: 'HomeOverlay',
     components: {

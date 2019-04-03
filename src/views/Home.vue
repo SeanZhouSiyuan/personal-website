@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Animator from './../animator.js';
+import Animator from './../utils/animator.js';
 import HomeNavigation from '../components/Navigation.vue';
 import HomeHero from '../components/Hero.vue';
 import HomeAbout from '../components/About.vue';

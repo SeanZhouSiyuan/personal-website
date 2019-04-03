@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import { eventBus } from './../eventBus.js';
+import { eventBus } from './../utils/eventBus.js';
 export default {
     name: 'HomeFooter',
     methods: {

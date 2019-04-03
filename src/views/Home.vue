@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import animator from './../animator.js';
+import Animator from './../animator.js';
 import HomeNavigation from '../components/Navigation.vue';
 import HomeHero from '../components/Hero.vue';
 import HomeAbout from '../components/About.vue';
@@ -34,12 +34,21 @@ export default {
     HomeFooter,
     HomeOverlay
   },
+  data() {
+    return {
+      animator: null
+    }
+  },
   beforeMount() {
     document.title = 'Sean Zhou';
   },
   mounted() {
-    animator.setupSelf('self-animatable');
-    animator.setupChildren('children-animatable');
+    this.animator = new Animator('self-animatable', 'children-animatable');
+    this.animator.setupListener();
+  },
+  destroyed() {
+    this.animator.removeListener();
+    this.animator = null;
   }
 }
 </script>

@@ -22,13 +22,15 @@
                     v-for="item in categories"
                     :key="item.id"
                     @click="callOverlay(item.id)"
-                    class="category"
+                    class="category-wrapper"
                 >
-                    <div
-                        class="category-icon"
-                        :style="{ backgroundImage: `url(${item.icon})` }">
+                    <div class="category">
+                        <div
+                            class="category-icon"
+                            :style="{ backgroundImage: `url(${item.icon})` }">
+                        </div>
+                        <h3 class="category-title">{{ item.title }}</h3>
                     </div>
-                    <h3 class="category-title">{{ item.title }}</h3>
                 </div>
             </div>
         </div>

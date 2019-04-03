@@ -15,12 +15,14 @@
                 <div
                     v-for="post in list"
                     :key="post.id"
-                    class="post"
+                    class="post-wrapper"
                 >
-                    <router-link :to="post.path">
-                        <p class="date">{{ post.date }}</p>
-                        <h3 class="title">{{ post.title }}</h3>
-                    </router-link>
+                    <div class="post">
+                        <router-link :to="post.path">
+                            <p class="date">{{ post.date }}</p>
+                            <h3 class="title">{{ post.title }}</h3>
+                        </router-link>
+                    </div>
                 </div>
             </div>
         </div>

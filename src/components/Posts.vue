@@ -1,7 +1,7 @@
 <template>
     <section id="posts" class="section--primary">
         <div class="wrapper">
-            <header class="posts-header section-header content-animatable">
+            <header class="posts-header section-header children-animatable">
                 <div class="section-title">
                     <span class="dash">–</span>
                     <span class="text">My Articles</span>

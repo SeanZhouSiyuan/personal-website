@@ -1,7 +1,7 @@
 <template>
     <div id="hero">
         <div class="wrapper">
-            <div class="hero-container content-animatable">
+            <div class="hero-container children-animatable">
                 <!-- <div class="avatar"></div> -->
                 <h1 class="title">Sean Zhou</h1>
                 <p class="title--secondary">Student, developer, citizen. I like to create.</p>

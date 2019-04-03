@@ -1,7 +1,7 @@
 <template>
     <section id="about" class="section--primary">
         <div class="wrapper">
-            <header class="section-header content-animatable">
+            <header class="section-header children-animatable">
                 <div class="section-title">
                     <span class="dash">–</span>
                     <span class="text">About Me</span>

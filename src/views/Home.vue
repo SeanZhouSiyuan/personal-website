@@ -43,11 +43,14 @@ export default {
     document.title = 'Sean Zhou';
   },
   mounted() {
-    this.animator = new Animator('self-animatable', 'children-animatable');
-    this.animator.setupListener();
+    let animatableItems = document.getElementsByClassName('self-animatable');
+    let animatableContainers = document.getElementsByClassName('children-animatable');
+    
+    this.animator = new Animator(animatableItems, animatableContainers);
+    this.animator.setup();
   },
   destroyed() {
-    this.animator.removeListener();
+    this.animator.remove();
     this.animator = null;
   }
 }

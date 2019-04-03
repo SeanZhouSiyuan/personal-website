@@ -1,6 +1,11 @@
-let Animator = function (selfClass, containerClass) {
+/**
+ * 
+ * @param {Array} animatableItems 
+ * @param {Array} animatableContainers 
+ */
+let Animator = function (animatableItems = [], animatableContainers = []) {
     this.animatableItems = 
-        Array.from(document.getElementsByClassName(selfClass))
+        Array.from(animatableItems)
         .map(item => {
             return {
                 el: item,
@@ -8,7 +13,7 @@ let Animator = function (selfClass, containerClass) {
             }
         });
     this.animatableContainers = 
-        Array.from(document.getElementsByClassName(containerClass))
+        Array.from(animatableContainers)
         .map(container => {
             return {
                 el: container,
@@ -16,20 +21,22 @@ let Animator = function (selfClass, containerClass) {
             }
         });
 }
-Animator.prototype.setupListener = function() {
-    setupAnimation(this.animatableContainers, this.animatableItems);
+Animator.prototype.setup = function() {
+    setupContainers(this.animatableContainers);
+    setupItems(this.animatableItems);
     window.addEventListener('scroll', () => {
-        setupAnimation(this.animatableContainers, this.animatableItems);
+        setupContainers(this.animatableContainers);
+        setupItems(this.animatableItems);
     });
 }
-Animator.prototype.removeListener = function() {
+Animator.prototype.remove = function() {
     window.removeEventListener('scroll', () => {
-        setupAnimation(this.animatableContainers, this.animatableItems);
+        setupContainers(this.animatableContainers);
+        setupItems(this.animatableItems);
     });
 }
-
-function setupAnimation(containers, items) {
-    containers.forEach(container => {
+function setupContainers(animatableContainers) {
+    animatableContainers.forEach(container => {
         if (container.visible === false) {
             if (isElementInViewport(container.el, 32) === true) {
                 Array.from(container.el.children)
@@ -42,7 +49,9 @@ function setupAnimation(containers, items) {
             }
         }
     });
-    items.forEach(item => {
+}
+function setupItems(animatableItems) {
+    animatableItems.forEach(item => {
         if (item.visible === false) {
             if (isElementInViewport(item.el, 128) === true) {
                 setTimeout(() => {

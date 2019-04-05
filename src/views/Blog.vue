@@ -24,7 +24,7 @@
                         <div class="meta">
                             <div class="date">{{ post.date }}</div>
                             <div class="divider">·</div>
-                            <div class="tags-box">
+                            <!-- <div class="tags-box">
                                 <div
                                     v-for="(tag, index) in post.tags"
                                     :key="index"
@@ -32,7 +32,9 @@
                                 >
                                     {{ tag }}
                                 </div>
-                            </div>
+                            </div> -->
+                            <div class="category">{{ post.category }}</div>
+                        </div>
                         </div>
                         <h2 class="title">{{ post.title }}</h2>
                         <p class="intro">{{ post.intro }}</p>

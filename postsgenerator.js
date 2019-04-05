@@ -32,6 +32,7 @@ function getPosts() {
             date: new Date(attributes.date) || stats.birthtime,
             modifiedDate: stats.mtime,
             tags: attributes.tags ? attributes.tags.split(/[,|;]\s*/) : [],
+            category: attributes.category,
             intro: attributes.intro ? attributes.intro : '',
             body: body
         };

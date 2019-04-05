@@ -32,21 +32,33 @@
 </template>
 
 <script>
+import dateFormatter from './../utils/dateFormatter.js';
 import marked from 'marked';
 export default {
     name: 'Post',
     data() {
         return {
-            post: null,
-            compiledMarkdown: null
+            publicPath: process.env.BASE_URL,
+            post: {}
         }
     },
     created() {
         let id = this.$route.params.id;
-        import(`./../assets/posts/${id}.js`).then(data => {
-            this.post = data.post;
-            document.title = `${this.post.title} - Sean's Blog`;
-            this.compiledMarkdown = marked(this.post.body, {sanitize: true});
+        let url = `${this.publicPath}posts/${id}.json`;
+        fetch(url).then(res => {
+            return res.json();
+        }).then(data => {
+            this.post = {
+                title: data.title,
+                date: dateFormatter(new Date(data.date)),
+                modifiedDate: dateFormatter(new Date(data.modifiedDate)),
+                tags: data.tags,
+                category: data.category,
+                compiledBody: marked(data.body, {sanitize: true})
+            };
+            document.title = `${data.title} - Sean's Blog`;
+        }).catch(err => {
+            console.error(err);
         });
     }
 }

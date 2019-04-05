@@ -16,7 +16,7 @@
         <div class="posts-wrapper">
             <main class="posts-box">
                 <div
-                    v-for="post in outputList"
+                    v-for="post in list"
                     :key="post.id"
                     class="post"
                 >
@@ -35,7 +35,6 @@
                             </div> -->
                             <div class="category">{{ post.category }}</div>
                         </div>
-                        </div>
                         <h2 class="title">{{ post.title }}</h2>
                         <p class="intro">{{ post.intro }}</p>
                         <!-- <p class="date">{{ post.date }}</p> -->
@@ -51,18 +50,20 @@
 
 <script>
 import dateFormatter from './../utils/dateFormatter.js';
-import postList from './../assets/postList.js';
 export default {
     name: 'Blog',
     data() {
         return {
-            inputList: postList
+            publicPath: process.env.BASE_URL,
+            list: []
         }
     },
-    computed: {
-        outputList() {
-            let list = this.inputList;
-            let outputList = list.map(post => {
+    created() {
+        let url = `${this.publicPath}postList.json`;
+        fetch(url).then(res => {
+            return res.json();
+        }).then(data => {
+            this.list = data.map(post => {
                 let date = post.date;
                 let intro = post.intro;
                 post.date = dateFormatter(date);
@@ -75,9 +76,9 @@ export default {
                 post.intro = intro;
                 return post;
             });
-
-            return outputList;
-        }
+        }).catch(err => {
+            console.error(err);
+        });
     },
     beforeMount() {
         document.title = 'Sean\'s Blog';

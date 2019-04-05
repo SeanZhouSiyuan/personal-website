@@ -1,68 +1,120 @@
-#post_wrapper {
+#post {
+    margin: 0 auto;
     padding-top: 1rem;
-    max-width: 768px;
-    #post_nav {
-        margin-bottom: 1rem;
-    }
-    h1 {
-        font-size: 1.5rem;
-        font-weight: 600;
-        text-align: center;
-        line-height: 1.75;
-    }
-    h2 {
-        margin-top: calc(1em + 1rem);
-        font-size: 1.25rem;
-        font-weight: 600;
-    }
-    h3, h4, h5, h6 {
-        margin-top: calc(1em + 0.5rem);
-        font-weight: 600;
-    }
-    h5, h6 {
-        font-weight: 700;
-    }
-    p {
-        line-height: 1.75;
-    }
-    table {
-        border-collapse: collapse;
-        th, td {
-            padding: 1rem;
-            text-align: left;
-            border: 1px solid @gray-dark;
-        }
-    }
-    ul {
-        padding-left: 1.25rem;
-        li {
-            margin-bottom: 1rem;
-            line-height: 1.75;
-        }
-    }
-    code {
-        background-color: @gray-light;
-    }
-    pre {
-        overflow-x: auto;
-        code {
-            background-color: @white;
-            line-height: 1.75;
-        }
-    }
+    max-width: 800px;
     @media screen and (min-width: 768px) {
         padding-top: 2rem;
-        h1 {
+    }
+    .post-nav {
+        margin-bottom: 2rem;
+    }
+    .post-title {
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 1.25;
+        @media screen and (min-width: 768px) {
             font-size: 2.5rem;
-            font-weight: 600;
-        }
-        h2 {
-            font-size: 1.5rem;
         }
     }
-    @media screen and (min-width: 1024px) {
+    .post-meta {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        font-size: calc(1rem - 2px);
+        // .tags-box {
+        //     &::after {
+        //         content: '';
+        //         display: table;
+        //         clear: both;
+        //     }
+        //     .single-tag {
+        //         line-height: 1;
+        //         float: left;
+        //         font-weight: 600;
+        //         text-transform: uppercase;
+        //         color: rgba(80, 80, 80, 0.75);
+        //         + .single-tag {
+        //             margin-left: 1rem;
+        //         }
+        //     }
+        // }
+        .category {
+            line-height: 1;
+            float: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: rgba(80, 80, 80, 0.75);
+        }
+        .date {
+            margin-right: 1.25rem;
+            border-right: 1px solid rgba(80, 80, 80, 0.5);
+            padding-right: 1.25rem;
+            line-height: 1;
+            font-weight: 600;
+            color: rgba(80, 80, 80, 0.75);
+        }
+    }
+    .post-body {
+        // title
         h1 {
-            font-size: 3rem;
+            display: none;
+        }
+        // headings
+        h2 {
+            margin-top: calc(1em + 1rem);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            @media screen and (min-width: 768px) {
+                font-size: 1.75rem;
+            }
+        }
+        h3, h4, h5, h6 {
+            margin-top: calc(1em + 0.5rem);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        h5, h6 {
+            font-weight: 700;
+        }
+        // paragraph
+        p {
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+        // table
+        table {
+            border-collapse: collapse;
+            th, td {
+                padding: 1rem;
+                text-align: left;
+                border: 1px solid @gray-dark;
+            }
+        }
+        // list
+        ul {
+            margin: 1.25rem 0;
+            padding-left: 1.25rem;
+            li {
+                line-height: 1.6;
+            }
+        }
+        // inline code in paragraph, list, etc.
+        code {
+            padding: 0 4px;
+            background-color: @gray-lightest;
+        }
+        // block-level code
+        pre {
+            display: block;
+            background-color: @gray-lightest;
+            code {
+                display: block;
+                padding: 1rem;
+                background: none;
+                line-height: 1.6;
+                overflow-x: auto;
+            }
         }
     }
 }

@@ -31,17 +31,25 @@
 
 <script>
 import dateFormatter from './../utils/dateFormatter.js';
-import postList from './../assets/postList.js';
 export default {
     name: 'HomePosts',
     data() {
         return {
-            list: postList
+            publicPath: process.env.BASE_URL,
+            list: []
         }
     },
-    beforeMount() {
-        this.list.forEach(post => {
-            post.date = dateFormatter(post.date);
+    created() {
+        let url = `${this.publicPath}postList.json`;
+        fetch(url).then(res => {
+            return res.json();
+        }).then(data => {
+            this.list = data.map(post => {
+                post.date = dateFormatter(post.date);
+                return post;
+            });
+        }).catch(err => {
+            console.error(err);
         });
     }
 }

@@ -3,7 +3,7 @@ const fs = require('fs');
 const fm = require('front-matter');
 
 const markdownDir = path.resolve(__dirname, 'posts');
-const assetsDir = path.resolve(__dirname, 'src/assets');
+const publicDir = path.resolve(__dirname, 'public');
 
 let posts = getPosts();
 savePostList(posts);
@@ -32,6 +32,7 @@ function getPosts() {
             date: new Date(attributes.date) || stats.birthtime,
             modifiedDate: stats.mtime,
             tags: attributes.tags ? attributes.tags.split(/[,|;]\s*/) : [],
+            category: attributes.category,
             intro: attributes.intro ? attributes.intro : '',
             body: body
         };
@@ -47,11 +48,11 @@ function getPosts() {
 }
 
 /**
- * Saves the post list to `postList.js`.
+ * Saves the post list to `postList.json`.
  * @param { Array } posts
  */
 function savePostList(posts) {
-    let filePath = path.resolve(assetsDir, 'postList.js');
+    let filePath = path.resolve(publicDir, 'postList.json');
     let list = posts.map(post => {
         let item = {};
         for (let key in post) {
@@ -61,16 +62,16 @@ function savePostList(posts) {
         }
         return item;
     });
-    let data = `export default ${JSON.stringify(list)};`;
+    let data = JSON.stringify(list);
     fs.writeFileSync(filePath, data, 'utf8');
 }
 
 /**
- * Saves each post to a JS file.
+ * Saves each post to a JSON file.
  * @param { Array } posts
  */
 function savePosts(posts) {
-    let postsDir = path.resolve(assetsDir, 'posts');
+    let postsDir = path.resolve(publicDir, 'posts');
     if (fs.existsSync(postsDir)) {
         fs.readdirSync(postsDir).forEach(fileName => {
             fs.unlinkSync(path.resolve(postsDir, fileName));
@@ -79,9 +80,9 @@ function savePosts(posts) {
         fs.mkdirSync(postsDir);
     }
     posts.forEach(post => {
-        let fileName = `${post.title.toLowerCase().replace(/\s+/g, '-')}.js`;
+        let fileName = `${post.title.toLowerCase().replace(/\s+/g, '-')}.json`;
         let filePath = path.resolve(postsDir, fileName);
-        let data = `let post = ${JSON.stringify(post)}; export { post };`;
+        let data = JSON.stringify(post);
         fs.writeFileSync(filePath, data, 'utf8');
     });
 }

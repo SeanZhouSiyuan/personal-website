@@ -21,8 +21,8 @@ yarn-error.log*
 *.sw*
 
 # markdown files directory
-posts
+articles
 
 # compiled markdown
-src/assets/postList.js
-src/assets/posts/
+public/postList.json
+public/posts/
